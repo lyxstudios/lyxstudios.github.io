@@ -1,96 +1,202 @@
-# LYX Studios Website
+# LYX Studios Website 🎮
 
-Welcome to the official LYX Studios GitHub Pages website! This is your hub for getting started guides, staff guides, rules, and important information about our organization.
+A modern, feature-rich website for LYX Studios with Discord authentication and staff zone access control.
 
-## 📋 Features
+## Features ✨
 
-- **Home Page**: Overview of LYX Studios with quick access to all sections
-- **Getting Started Guide**: Step-by-step instructions for new members
-- **Guides & Tutorials**: Comprehensive guides for users and staff
-- **Rules & Policies**: Important rules and community standards
-- **Non-Disclosure Agreement (NDA)**: Legal documentation for confidential information
-- **Password-Protected Staff Area**: Secure section for staff management and content editing
+- **Home Page**: Server overview with features showcase
+- **Start Guide**: Comprehensive getting started guide for new players
+- **Help Section**: FAQ, troubleshooting, and keybinds reference
+- **Store**: VIP packages and in-game items
+- **Staff Zone**: Restricted area for staff members only (requires Discord authentication)
+- **Discord OAuth**: Login with Discord to access staff features
+- **Role-Based Access**: Automatic staff role verification
 
-## 🔐 Staff Area Access
+## Setup Instructions 🛠️
 
-The staff area is protected by a password. Only authorized staff members should have access.
+### 1. Discord Application Setup
 
-**Default Password**: `LYX2026`
+To enable Discord authentication, you need to create a Discord application:
 
-⚠️ **IMPORTANT**: Change this password immediately after your first login! Edit the password in the JavaScript section of `index.html`.
+1. Go to [Discord Developer Portal](https://discord.com/developers/applications)
+2. Click "New Application"
+3. Name it "LYX Studios" (or your preferred name)
+4. Go to the "OAuth2" section
+5. Add a redirect URL: `https://yourdomain.com` (or `http://localhost` for testing)
+6. Copy your **Client ID**
 
-### Staff Features
+### 2. Configure the Website
 
-- Edit all page content (guides, rules, getting started, NDA)
-- Create and manage announcements
-- View and delete announcements
-- All changes are saved locally in your browser using localStorage
+Edit `script.js` and replace the placeholder in the `DISCORD_CONFIG` object:
 
-## 🚀 How to Use
+```javascript
+const DISCORD_CONFIG = {
+    clientId: 'YOUR_DISCORD_CLIENT_ID', // Replace with your actual Client ID
+    redirectUri: window.location.origin,
+    guildId: '1432065913607291014',
+    staffRoleId: '1439398236833054811',
+    scopes: ['identify', 'guilds.members.read']
+};
+```
 
-1. Navigate to each section using the navigation menu
-2. For staff access, click "Staff Area" and enter the password
-3. Staff members can edit content by selecting the appropriate button in the management panel
-4. All edits are automatically saved to browser local storage
+**Important**: Replace `'YOUR_DISCORD_CLIENT_ID'` with your actual Discord Application Client ID.
 
-## 📝 Content Management
+### 3. Add the LYX Logo
 
-### For Staff Members
+Place your `lyx.png` logo file in the same directory as the HTML file.
 
-1. Click on "Staff Area" in the navigation
-2. Enter the staff password
-3. Use the management buttons to edit different sections:
-   - **Edit Guides**: Modify user and staff guides
-   - **Edit Rules**: Update community rules and policies
-   - **Edit Getting Started**: Change onboarding instructions
-   - **Edit NDA**: Update the non-disclosure agreement
-   - **Announcements**: Create and manage announcements
+### 4. Host the Website
 
-### Saving Changes
+You can host this website on:
+- **GitHub Pages**: Free and easy
+  1. Create a GitHub repository
+  2. Push your files
+  3. Enable GitHub Pages in repository settings
+  4. Update the OAuth redirect URI to your GitHub Pages URL
 
-All changes are saved to browser localStorage. To persist changes:
-- Export your edited content regularly
-- Keep backups of important information
-- For permanent storage, consider integrating with a backend database
+- **Netlify/Vercel**: Free hosting with custom domains
+- **Your own server**: Any web hosting service
 
-## 🎨 Customization
+### 5. Update Discord OAuth Redirect URI
 
-### Logo
-Replace `lyx.png` with your own logo file. The current logo is displayed in the header.
+After hosting, update your Discord application's OAuth2 redirect URI to match your website URL.
+
+## Discord Configuration Details 📋
+
+### Current Settings:
+- **Guild ID**: 1432065913607291014
+- **Staff Role ID**: 1439398236833054811
+
+These IDs are configured in the code. Users with the staff role in your Discord server will have access to the Staff Zone.
+
+## OAuth Scopes Explained 🔐
+
+The website requests the following Discord scopes:
+- `identify`: Get basic user information (username, avatar)
+- `guilds.members.read`: Check if user has the staff role in your server
+
+## File Structure 📁
+
+```
+├── index.html          # Main HTML file
+├── style.css           # Styling and theme
+├── script.js           # Discord OAuth and navigation logic
+├── lyx.png            # Server logo (you need to add this)
+└── README.md          # This file
+```
+
+## Pages Overview 📄
+
+### Home
+- Hero section with logo
+- Feature cards showcasing server highlights
+- Call-to-action buttons
+
+### Start Guide
+- Step-by-step setup instructions
+- Server rules
+- Pro tips for new players
+
+### Help
+- Common issues and solutions
+- Keybinds reference
+- Contact support options
+
+### Store
+- VIP packages (Bronze, Silver, Gold)
+- Vehicle packages
+- Property packages
+- Starter pack
+
+### Staff Zone (Restricted)
+- Staff guidelines and rules
+- Command reference
+- Punishment guidelines
+- Best practices
+- Staff contacts
+
+## Customization 🎨
 
 ### Colors
-- Primary Color: `#ff4500` (Orange-Red)
-- Secondary Color: `#ffd700` (Gold)
-- Background: Dark gradient (`#1a1a1a` to `#2d2d2d`)
+Edit the CSS variables in `style.css`:
 
-### Password
-To change the staff password:
-1. Open `index.html`
-2. Find the line: `const STAFF_PASSWORD = 'LYX2026';`
-3. Replace `'LYX2026'` with your desired password
+```css
+:root {
+    --primary-color: #cc0000;      /* Red */
+    --secondary-color: #ff0000;    /* Bright red */
+    --dark-bg: #0a0a0a;           /* Almost black */
+    --accent: #ff0000;            /* Red accent */
+}
+```
 
-## 📱 Responsive Design
+### Content
+- Edit `index.html` to update text content
+- Modify sections, add/remove features
+- Update prices in the store section
 
-The website is fully responsive and works on:
-- Desktop browsers
-- Tablets
-- Mobile devices
+### Adding New Pages
+1. Add a new page div in `index.html`:
+   ```html
+   <div id="newpage-page" class="page">
+       <!-- Your content -->
+   </div>
+   ```
 
-## 🔒 Security Notes
+2. Add navigation link:
+   ```html
+   <li><a href="#" data-page="newpage" class="nav-link">New Page</a></li>
+   ```
 
-- Passwords are checked client-side only. For production use, implement server-side authentication
-- Never commit sensitive passwords to version control
-- Use HTTPS when deploying to production
-- Consider implementing more robust authentication for actual sensitive content
+## Security Notes 🔒
 
-## 📄 License
+- Never expose your Discord Client Secret
+- The current implementation uses implicit OAuth flow (suitable for static sites)
+- For production, consider using a backend server to handle OAuth tokens securely
+- Keep your Discord Bot Token private (not needed for this implementation)
 
-All content © 2026 LYX Studios. All rights reserved.
+## Testing Locally 💻
 
-## 🤝 Support
+1. Open `index.html` in a web browser
+2. For OAuth to work locally, set redirect URI to `http://localhost` or use a local server:
+   ```bash
+   # Python 3
+   python -m http.server 8000
+   
+   # Or use any other local server
+   ```
 
-For questions or issues with the website, please contact the LYX Studios staff.
+## Troubleshooting 🔧
+
+### OAuth Not Working
+- Verify Client ID is correct
+- Check redirect URI matches in Discord app settings
+- Ensure you're accessing via the correct URL
+
+### Staff Zone Not Showing
+- Verify you're logged in with Discord
+- Check that your Discord account has the staff role
+- Confirm role ID is correct in `script.js`
+
+### Logo Not Displaying
+- Ensure `lyx.png` is in the same directory
+- Check file name matches exactly (case-sensitive)
+- Clear browser cache
+
+## Browser Support 🌐
+
+- Chrome/Edge (latest)
+- Firefox (latest)
+- Safari (latest)
+- Opera (latest)
+
+## License 📄
+
+This website is created for LYX Studios. Feel free to modify and customize as needed.
+
+## Credits 👏
+
+Created for LYX Studios - Your Ultimate Roleplay Experience
 
 ---
 
-**Last Updated**: February 5, 2026
+**Need Help?** Join the LYX Studios Discord server for support!
