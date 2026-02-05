@@ -1,20 +1,877 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My GitHub Website</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LYX Studios</title>
   <style>
-    body {
-      background:#111;
-      color:white;
-      font-family:Arial;
-      text-align:center;
-      padding-top:100px;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    h1 { color:red; }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+      color: #e0e0e0;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+      padding: 20px 0;
+      border-bottom: 3px solid #ff4500;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo {
+      height: 50px;
+      width: 50px;
+    }
+
+    .company-name {
+      font-size: 28px;
+      font-weight: bold;
+      color: #ff4500;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+
+    nav {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    nav a {
+      color: #e0e0e0;
+      text-decoration: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      background: #ff4500;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    nav a.staff {
+      color: #ffd700;
+      border: 1px solid #ffd700;
+    }
+
+    nav a.staff:hover {
+      background: #ffd700;
+      color: black;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, rgba(255, 69, 0, 0.1) 0%, rgba(255, 215, 0, 0.05) 100%);
+      border-radius: 10px;
+      margin-bottom: 40px;
+      border: 1px solid rgba(255, 69, 0, 0.3);
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      color: #ff4500;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero p {
+      font-size: 20px;
+      color: #bbb;
+      margin-bottom: 20px;
+    }
+
+    .section {
+      display: none;
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: linear-gradient(135deg, #2a2a2a 0%, #1f1f1f 100%);
+      border: 1px solid #ff4500;
+      border-radius: 10px;
+      padding: 25px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(255, 69, 0, 0.3);
+      border-color: #ffd700;
+    }
+
+    .card h3 {
+      color: #ff4500;
+      margin-bottom: 15px;
+      font-size: 22px;
+    }
+
+    .card p {
+      color: #bbb;
+      line-height: 1.8;
+    }
+
+    .guide-item {
+      background: #2a2a2a;
+      border-left: 4px solid #ff4500;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 5px;
+    }
+
+    .guide-item h3 {
+      color: #ff4500;
+      margin-bottom: 10px;
+    }
+
+    .guide-item ol {
+      margin-left: 20px;
+      color: #bbb;
+    }
+
+    .guide-item li {
+      margin: 10px 0;
+    }
+
+    .nda-section {
+      background: #2a2a2a;
+      border: 2px solid #ffd700;
+      padding: 30px;
+      border-radius: 10px;
+      margin: 20px 0;
+    }
+
+    .nda-section h3 {
+      color: #ffd700;
+      margin-bottom: 15px;
+    }
+
+    .nda-section p {
+      margin: 15px 0;
+      color: #bbb;
+      line-height: 1.8;
+    }
+
+    .staff-login {
+      background: linear-gradient(135deg, #2a2a2a 0%, #1f1f1f 100%);
+      border: 2px solid #ffd700;
+      padding: 40px;
+      border-radius: 10px;
+      max-width: 400px;
+      margin: 40px auto;
+    }
+
+    .staff-login h2 {
+      color: #ffd700;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: #ff4500;
+      font-weight: 500;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px;
+      background: #1a1a1a;
+      border: 1px solid #ff4500;
+      border-radius: 5px;
+      color: #e0e0e0;
+      font-size: 16px;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: #ffd700;
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #ff4500;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background: #ffd700;
+      color: black;
+      transform: translateY(-2px);
+    }
+
+    .staff-panel {
+      background: linear-gradient(135deg, #2a2a2a 0%, #1f1f1f 100%);
+      border: 2px solid #ffd700;
+      padding: 30px;
+      border-radius: 10px;
+      margin-top: 30px;
+    }
+
+    .staff-panel h2 {
+      color: #ffd700;
+      margin-bottom: 20px;
+    }
+
+    .button-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .button-group button {
+      background: #ff4500;
+      padding: 15px;
+    }
+
+    .button-group button:hover {
+      background: #ffd700;
+    }
+
+    .staff-content {
+      display: none;
+      background: #1a1a1a;
+      padding: 20px;
+      border-radius: 5px;
+      margin-top: 20px;
+      border: 1px solid #ff4500;
+    }
+
+    .staff-content.active {
+      display: block;
+    }
+
+    .edit-area {
+      width: 100%;
+      min-height: 300px;
+      padding: 15px;
+      background: #1a1a1a;
+      border: 1px solid #ff4500;
+      border-radius: 5px;
+      color: #e0e0e0;
+      font-family: 'Courier New', monospace;
+      resize: vertical;
+      margin-bottom: 15px;
+    }
+
+    footer {
+      background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+      padding: 30px 20px;
+      text-align: center;
+      border-top: 3px solid #ff4500;
+      color: #999;
+      margin-top: 50px;
+    }
+
+    .rules-list {
+      list-style: none;
+    }
+
+    .rules-list li {
+      background: #2a2a2a;
+      padding: 15px;
+      margin: 15px 0;
+      border-left: 4px solid #ff4500;
+      border-radius: 5px;
+    }
+
+    .rules-list li strong {
+      color: #ff4500;
+    }
+
+    @media (max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav {
+        width: 100%;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .company-name {
+        font-size: 22px;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>Welcome to my site</h1>
-  <p>Hosted free on GitHub Pages</p>
+  <header>
+    <div class="header-container">
+      <div class="logo-section">
+        <img src="lyx.png" alt="LYX Studios Logo" class="logo">
+        <div class="company-name">LYX Studios</div>
+      </div>
+      <nav>
+        <a href="#" onclick="showSection('home')">Home</a>
+        <a href="#" onclick="showSection('getting-started')">Getting Started</a>
+        <a href="#" onclick="showSection('guides')">Guides</a>
+        <a href="#" onclick="showSection('rules')">Rules</a>
+        <a href="#" onclick="showSection('nda')">NDA</a>
+        <a href="#" onclick="showSection('staff')" class="staff">Staff Area</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- Home Section -->
+    <div id="home" class="section active">
+      <div class="hero">
+        <h1>Welcome to LYX Studios</h1>
+        <p>Your Hub for Getting Started, Guides, and Information</p>
+      </div>
+      <div class="card-grid">
+        <div class="card" onclick="showSection('getting-started')">
+          <h3>🚀 Getting Started</h3>
+          <p>New to LYX Studios? Start here! Learn the basics and get up and running quickly.</p>
+        </div>
+        <div class="card" onclick="showSection('guides')">
+          <h3>📖 Guides & Tutorials</h3>
+          <p>Comprehensive guides and tutorials to help you make the most of our platform.</p>
+        </div>
+        <div class="card" onclick="showSection('rules')">
+          <h3>⚖️ Rules & Policies</h3>
+          <p>Important rules and policies to ensure a great experience for everyone.</p>
+        </div>
+        <div class="card" onclick="showSection('nda')">
+          <h3>📋 Non-Disclosure Agreement</h3>
+          <p>Legal documentation and NDAs for our organization.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Getting Started Section -->
+    <div id="getting-started" class="section">
+      <h2 style="color: #ff4500; margin-bottom: 30px;">Getting Started with LYX Studios</h2>
+      
+      <div class="guide-item">
+        <h3>Step 1: Create Your Account</h3>
+        <ol>
+          <li>Visit our main website</li>
+          <li>Click the "Sign Up" button</li>
+          <li>Enter your email address and create a strong password</li>
+          <li>Verify your email address</li>
+          <li>Complete your profile with relevant information</li>
+        </ol>
+      </div>
+
+      <div class="guide-item">
+        <h3>Step 2: Complete Your Profile</h3>
+        <ol>
+          <li>Navigate to your profile settings</li>
+          <li>Upload a profile picture</li>
+          <li>Add a bio and contact information</li>
+          <li>Set your preferences and notification settings</li>
+          <li>Enable two-factor authentication for security</li>
+        </ol>
+      </div>
+
+      <div class="guide-item">
+        <h3>Step 3: Explore the Platform</h3>
+        <ol>
+          <li>Check out the Guides section for tutorials</li>
+          <li>Review the Rules to understand community standards</li>
+          <li>Connect with other members</li>
+          <li>Read the NDA if you have access to confidential information</li>
+        </ol>
+      </div>
+
+      <div class="guide-item">
+        <h3>Step 4: Get Support</h3>
+        <ol>
+          <li>Visit our FAQ section</li>
+          <li>Contact support through the help menu</li>
+          <li>Join our community forums</li>
+          <li>Reach out to staff for specific questions</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Guides Section -->
+    <div id="guides" class="section">
+      <h2 style="color: #ff4500; margin-bottom: 30px;">Guides & Staff Information</h2>
+      
+      <div class="guide-item">
+        <h3>User Guide</h3>
+        <p>A comprehensive guide covering all features and functionality available to users. Learn how to navigate the platform, manage your account, and make the most of your experience at LYX Studios.</p>
+        <ol>
+          <li>Account Management</li>
+          <li>Dashboard Overview</li>
+          <li>Project Management</li>
+          <li>Collaboration Features</li>
+          <li>Data Export & Backup</li>
+        </ol>
+      </div>
+
+      <div class="guide-item">
+        <h3>Staff Guide</h3>
+        <p>Detailed instructions for staff members on managing the platform, user accounts, and resolving issues.</p>
+        <ol>
+          <li>Admin Dashboard Access</li>
+          <li>User Account Management</li>
+          <li>Content Moderation</li>
+          <li>System Monitoring</li>
+          <li>Incident Response Protocol</li>
+        </ol>
+      </div>
+
+      <div class="guide-item">
+        <h3>Security Best Practices</h3>
+        <p>Important security guidelines for protecting your account and data.</p>
+        <ol>
+          <li>Use strong, unique passwords</li>
+          <li>Enable two-factor authentication</li>
+          <li>Never share your credentials</li>
+          <li>Keep software updated</li>
+          <li>Report suspicious activity immediately</li>
+        </ol>
+      </div>
+
+      <div class="guide-item">
+        <h3>Troubleshooting Guide</h3>
+        <p>Common issues and their solutions.</p>
+        <ol>
+          <li>Login Issues - Reset your password and check browser settings</li>
+          <li>Connection Problems - Check your internet and try a different browser</li>
+          <li>Performance Issues - Clear cache and disable extensions</li>
+          <li>File Upload Errors - Check file size and format requirements</li>
+          <li>Still Need Help? - Contact our support team</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Rules Section -->
+    <div id="rules" class="section">
+      <h2 style="color: #ff4500; margin-bottom: 30px;">LYX Studios Rules & Policies</h2>
+      
+      <ul class="rules-list">
+        <li>
+          <strong>Rule 1: Professional Conduct</strong><br>
+          All members must conduct themselves professionally and respectfully. Harassment, discrimination, or abusive behavior is strictly prohibited.
+        </li>
+        <li>
+          <strong>Rule 2: Confidentiality</strong><br>
+          Confidential information must remain confidential. Do not share proprietary or sensitive information without authorization.
+        </li>
+        <li>
+          <strong>Rule 3: Intellectual Property</strong><br>
+          Respect intellectual property rights. Do not plagiarize or use others' work without permission and proper attribution.
+        </li>
+        <li>
+          <strong>Rule 4: Code of Conduct</strong><br>
+          Follow our code of conduct in all interactions. This includes professional communication and respectful disagreement.
+        </li>
+        <li>
+          <strong>Rule 5: Security Compliance</strong><br>
+          Comply with all security protocols and requirements. Use strong passwords and enable multi-factor authentication.
+        </li>
+        <li>
+          <strong>Rule 6: Data Protection</strong><br>
+          Protect user data and personal information. Report any data breaches immediately to the security team.
+        </li>
+        <li>
+          <strong>Rule 7: Acceptable Use</strong><br>
+          Use the platform only for authorized purposes. Unauthorized access or misuse may result in termination.
+        </li>
+        <li>
+          <strong>Rule 8: Compliance with Laws</strong><br>
+          All activities must comply with applicable laws and regulations in your jurisdiction.
+        </li>
+        <li>
+          <strong>Rule 9: Reporting Violations</strong><br>
+          Report any rule violations to the staff immediately. All reports will be investigated thoroughly.
+        </li>
+        <li>
+          <strong>Rule 10: Amendments</strong><br>
+          LYX Studios reserves the right to update these rules. Members will be notified of significant changes.
+        </li>
+      </ul>
+    </div>
+
+    <!-- NDA Section -->
+    <div id="nda" class="section">
+      <h2 style="color: #ff4500; margin-bottom: 30px;">Non-Disclosure Agreement (NDA)</h2>
+      
+      <div class="nda-section">
+        <h3>Confidentiality and Non-Disclosure Agreement</h3>
+        
+        <h4 style="color: #ffd700; margin-top: 20px;">1. Purpose</h4>
+        <p>This Non-Disclosure Agreement ("Agreement") is entered into as of the date of acceptance between LYX Studios ("Company") and the undersigned individual or entity ("Recipient"), to protect confidential information and trade secrets disclosed in the course of business operations.</p>
+
+        <h4 style="color: #ffd700; margin-top: 20px;">2. Confidential Information</h4>
+        <p>"Confidential Information" includes, but is not limited to: business plans, technical data, source code, algorithms, financial information, customer lists, product strategies, and any other information marked as confidential or that reasonably should be understood to be confidential.</p>
+
+        <h4 style="color: #ffd700; margin-top: 20px;">3. Obligations of Recipient</h4>
+        <p>The Recipient agrees to:</p>
+        <ul style="margin-left: 20px;">
+          <li>Maintain the confidentiality of all disclosed information</li>
+          <li>Use the information solely for the authorized purpose</li>
+          <li>Limit access to employees with a legitimate need to know</li>
+          <li>Implement adequate security measures to protect the information</li>
+          <li>Return or destroy all confidential information upon request or termination</li>
+        </ul>
+
+        <h4 style="color: #ffd700; margin-top: 20px;">4. Exceptions</h4>
+        <p>This Agreement does not apply to information that:</p>
+        <ul style="margin-left: 20px;">
+          <li>Is publicly available through no breach of this Agreement</li>
+          <li>Was known to the Recipient prior to disclosure</li>
+          <li>Is independently developed without reference to the confidential information</li>
+          <li>Is rightfully received from a third party without confidentiality restrictions</li>
+        </ul>
+
+        <h4 style="color: #ffd700; margin-top: 20px;">5. Term</h4>
+        <p>This Agreement shall commence on the date of acceptance and continue for a period of three (3) years from the date of disclosure, unless otherwise agreed in writing.</p>
+
+        <h4 style="color: #ffd700; margin-top: 20px;">6. Remedies</h4>
+        <p>The Recipient acknowledges that breach of this Agreement may cause irreparable harm for which monetary damages may be insufficient. The Company shall be entitled to seek injunctive relief and other equitable remedies.</p>
+
+        <h4 style="color: #ffd700; margin-top: 20px;">7. No License</h4>
+        <p>This Agreement does not grant any license or rights to the Recipient regarding the confidential information, except as expressly stated herein.</p>
+
+        <h4 style="color: #ffd700; margin-top: 20px;">8. Governing Law</h4>
+        <p>This Agreement shall be governed by and construed in accordance with the laws of the jurisdiction in which LYX Studios operates.</p>
+
+        <div style="margin-top: 30px; padding: 15px; background: #1a1a1a; border-radius: 5px;">
+          <p style="color: #ffd700; font-weight: bold;">⚠️ IMPORTANT: By accessing areas of this website or platform that contain confidential information, you are agreeing to the terms of this NDA.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Staff Section -->
+    <div id="staff" class="section">
+      <h2 style="color: #ffd700; margin-bottom: 30px;">🔐 Staff Area</h2>
+      
+      <div id="staff-login-form">
+        <div class="staff-login">
+          <h2>Staff Login</h2>
+          <div class="form-group">
+            <label for="staff-password">Enter Staff Password:</label>
+            <input type="password" id="staff-password" placeholder="Enter password">
+          </div>
+          <button onclick="authenticateStaff()">Login</button>
+          <p style="color: #999; font-size: 14px; margin-top: 15px; text-align: center;">
+            Only authorized staff members should have access to this area.
+          </p>
+        </div>
+      </div>
+
+      <div id="staff-panel" class="staff-panel" style="display: none;">
+        <h2>Staff Management Panel</h2>
+        <p style="color: #bbb; margin-bottom: 20px;">Welcome to the staff administration area. Use the options below to manage content.</p>
+
+        <div class="button-group">
+          <button onclick="showStaffContent('guides-edit')">Edit Guides</button>
+          <button onclick="showStaffContent('rules-edit')">Edit Rules</button>
+          <button onclick="showStaffContent('getting-started-edit')">Edit Getting Started</button>
+          <button onclick="showStaffContent('nda-edit')">Edit NDA</button>
+          <button onclick="showStaffContent('announcements')">Announcements</button>
+          <button onclick="logout()">Logout</button>
+        </div>
+
+        <div id="guides-edit" class="staff-content">
+          <h3 style="color: #ff4500; margin-bottom: 15px;">Edit Guides</h3>
+          <textarea id="guides-textarea" class="edit-area" placeholder="Edit guides content here...">User Guide - A comprehensive guide covering all features...
+
+Staff Guide - Instructions for staff members...
+
+Security Best Practices - Important security guidelines...
+
+Troubleshooting Guide - Common issues and solutions...</textarea>
+          <button onclick="saveContent('guides-edit')">Save Guides</button>
+          <p style="color: #999; margin-top: 10px; font-size: 14px;">Changes will be saved to local storage.</p>
+        </div>
+
+        <div id="rules-edit" class="staff-content">
+          <h3 style="color: #ff4500; margin-bottom: 15px;">Edit Rules</h3>
+          <textarea id="rules-textarea" class="edit-area" placeholder="Edit rules content here...">Rule 1: Professional Conduct
+Rule 2: Confidentiality
+Rule 3: Intellectual Property
+Rule 4: Code of Conduct
+Rule 5: Security Compliance
+Rule 6: Data Protection
+Rule 7: Acceptable Use
+Rule 8: Compliance with Laws
+Rule 9: Reporting Violations
+Rule 10: Amendments</textarea>
+          <button onclick="saveContent('rules-edit')">Save Rules</button>
+          <p style="color: #999; margin-top: 10px; font-size: 14px;">Changes will be saved to local storage.</p>
+        </div>
+
+        <div id="getting-started-edit" class="staff-content">
+          <h3 style="color: #ff4500; margin-bottom: 15px;">Edit Getting Started</h3>
+          <textarea id="getting-started-textarea" class="edit-area" placeholder="Edit getting started content here...">Step 1: Create Your Account
+Step 2: Complete Your Profile
+Step 3: Explore the Platform
+Step 4: Get Support</textarea>
+          <button onclick="saveContent('getting-started-edit')">Save Getting Started</button>
+          <p style="color: #999; margin-top: 10px; font-size: 14px;">Changes will be saved to local storage.</p>
+        </div>
+
+        <div id="nda-edit" class="staff-content">
+          <h3 style="color: #ff4500; margin-bottom: 15px;">Edit NDA</h3>
+          <textarea id="nda-textarea" class="edit-area" placeholder="Edit NDA content here...">Non-Disclosure Agreement
+
+1. Purpose
+This Agreement protects confidential information...
+
+2. Confidential Information
+Includes business plans, technical data, source code...</textarea>
+          <button onclick="saveContent('nda-edit')">Save NDA</button>
+          <p style="color: #999; margin-top: 10px; font-size: 14px;">Changes will be saved to local storage.</p>
+        </div>
+
+        <div id="announcements" class="staff-content">
+          <h3 style="color: #ff4500; margin-bottom: 15px;">Create Announcement</h3>
+          <div class="form-group">
+            <label for="announcement-title">Announcement Title:</label>
+            <input type="text" id="announcement-title" placeholder="Enter announcement title">
+          </div>
+          <div class="form-group">
+            <label for="announcement-content">Announcement Content:</label>
+            <textarea id="announcement-content" class="edit-area" placeholder="Enter announcement content..." style="min-height: 200px;"></textarea>
+          </div>
+          <button onclick="postAnnouncement()">Post Announcement</button>
+          <div id="announcements-list" style="margin-top: 30px;">
+            <h4 style="color: #ffd700; margin-bottom: 15px;">Recent Announcements</h4>
+            <div id="announcement-items"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 LYX Studios. All rights reserved.</p>
+    <p style="margin-top: 10px; font-size: 14px;">This website is hosted on GitHub Pages.</p>
+  </footer>
+
+  <script>
+    // Configuration
+    const STAFF_PASSWORD = 'LYX2026'; // Change this to your desired password
+    let isStaffAuthenticated = false;
+
+    // Show/Hide Sections
+    function showSection(sectionId) {
+      // Hide all sections
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(section => {
+        section.classList.remove('active');
+      });
+
+      // Show selected section
+      const selectedSection = document.getElementById(sectionId);
+      if (selectedSection) {
+        selectedSection.classList.add('active');
+        window.scrollTo(0, 0);
+      }
+    }
+
+    // Staff Authentication
+    function authenticateStaff() {
+      const password = document.getElementById('staff-password').value;
+      
+      if (password === STAFF_PASSWORD) {
+        isStaffAuthenticated = true;
+        document.getElementById('staff-login-form').style.display = 'none';
+        document.getElementById('staff-panel').style.display = 'block';
+        loadSavedContent();
+      } else {
+        alert('❌ Incorrect password. Please try again.');
+        document.getElementById('staff-password').value = '';
+      }
+    }
+
+    // Show Staff Content
+    function showStaffContent(contentId) {
+      const contents = document.querySelectorAll('.staff-content');
+      contents.forEach(content => {
+        content.classList.remove('active');
+      });
+
+      const selectedContent = document.getElementById(contentId);
+      if (selectedContent) {
+        selectedContent.classList.add('active');
+      }
+    }
+
+    // Save Content
+    function saveContent(contentId) {
+      const textareaId = contentId.replace('-edit', '-textarea');
+      const textarea = document.getElementById(textareaId);
+      
+      if (textarea) {
+        const content = textarea.value;
+        localStorage.setItem(contentId, content);
+        alert('✅ Content saved successfully!');
+      }
+    }
+
+    // Load Saved Content
+    function loadSavedContent() {
+      const contentIds = ['guides-edit', 'rules-edit', 'getting-started-edit', 'nda-edit'];
+      
+      contentIds.forEach(contentId => {
+        const saved = localStorage.getItem(contentId);
+        if (saved) {
+          const textareaId = contentId.replace('-edit', '-textarea');
+          const textarea = document.getElementById(textareaId);
+          if (textarea) {
+            textarea.value = saved;
+          }
+        }
+      });
+
+      // Load announcements
+      loadAnnouncements();
+    }
+
+    // Post Announcement
+    function postAnnouncement() {
+      const title = document.getElementById('announcement-title').value;
+      const content = document.getElementById('announcement-content').value;
+
+      if (!title || !content) {
+        alert('⚠️ Please fill in all fields.');
+        return;
+      }
+
+      const announcement = {
+        id: Date.now(),
+        title: title,
+        content: content,
+        date: new Date().toLocaleDateString()
+      };
+
+      let announcements = JSON.parse(localStorage.getItem('announcements') || '[]');
+      announcements.unshift(announcement);
+      localStorage.setItem('announcements', JSON.stringify(announcements));
+
+      document.getElementById('announcement-title').value = '';
+      document.getElementById('announcement-content').value = '';
+
+      alert('✅ Announcement posted successfully!');
+      loadAnnouncements();
+    }
+
+    // Load Announcements
+    function loadAnnouncements() {
+      const announcements = JSON.parse(localStorage.getItem('announcements') || '[]');
+      const announcementsList = document.getElementById('announcement-items');
+      
+      if (announcements.length === 0) {
+        announcementsList.innerHTML = '<p style="color: #999;">No announcements yet.</p>';
+        return;
+      }
+
+      announcementsList.innerHTML = announcements.map(announcement => `
+        <div style="background: #1a1a1a; border: 1px solid #ff4500; padding: 15px; margin: 10px 0; border-radius: 5px;">
+          <h5 style="color: #ff4500; margin-bottom: 5px;">${announcement.title}</h5>
+          <p style="color: #bbb; margin-bottom: 10px;">${announcement.content}</p>
+          <p style="color: #999; font-size: 12px;">Posted: ${announcement.date}</p>
+          <button onclick="deleteAnnouncement(${announcement.id})" style="background: #d32f2f; padding: 5px 10px; width: auto; margin-top: 10px;">Delete</button>
+        </div>
+      `).join('');
+    }
+
+    // Delete Announcement
+    function deleteAnnouncement(id) {
+      if (confirm('Are you sure you want to delete this announcement?')) {
+        let announcements = JSON.parse(localStorage.getItem('announcements') || '[]');
+        announcements = announcements.filter(a => a.id !== id);
+        localStorage.setItem('announcements', JSON.stringify(announcements));
+        loadAnnouncements();
+      }
+    }
+
+    // Logout
+    function logout() {
+      isStaffAuthenticated = false;
+      document.getElementById('staff-login-form').style.display = 'block';
+      document.getElementById('staff-panel').style.display = 'none';
+      document.getElementById('staff-password').value = '';
+      showSection('home');
+    }
+
+    // Prevent non-staff from accessing staff section without password
+    window.addEventListener('beforeunload', function() {
+      if (!isStaffAuthenticated && window.location.hash === '#staff') {
+        // Reset to home if trying to refresh while authenticated
+      }
+    });
+  </script>
 </body>
 </html>
