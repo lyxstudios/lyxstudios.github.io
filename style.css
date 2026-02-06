@@ -72,6 +72,7 @@ body {
     max-width: 1600px;
     margin: 0 auto;
     width: 100%;
+    height: calc(100vh - 100px);
 }
 
 /* Sidebar */
@@ -81,7 +82,8 @@ body {
     border-right: 1px solid var(--border-color);
     padding: 2rem 0;
     overflow-y: auto;
-    max-height: calc(100vh - 100px);
+    height: 100%;
+    flex-shrink: 0;
 }
 
 .sidebar-content {
@@ -89,6 +91,7 @@ body {
     flex-direction: column;
     gap: 2rem;
     padding: 0 1.5rem;
+    height: 100%;
 }
 
 .sidebar-section {
@@ -157,6 +160,7 @@ body {
     flex: 1;
     padding: 2rem;
     overflow-y: auto;
+    height: 100%;
 }
 
 .page {
