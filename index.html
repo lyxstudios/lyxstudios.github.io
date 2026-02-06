@@ -8,583 +8,1518 @@
     <link rel="icon" type="image/png" href="lyx.png">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
             <div class="logo">
                 <img src="lyx.png" alt="LYX Logo" class="logo-img">
-                <span class="logo-text">LYX</span>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#" data-page="home" class="nav-link active">🏠 Home</a></li>
-                <li><a href="#" data-page="guide" class="nav-link">📖 Start Guide</a></li>
-                <li><a href="#" data-page="help" class="nav-link">❓ Help</a></li>
-                <li><a href="#" data-page="store" class="nav-link">🛒 Store</a></li>
-                <li id="staff-nav" style="display: none;"><a href="#" data-page="staff" class="nav-link">👮 Staff Zone</a></li>
-            </ul>
-            <div class="auth-section">
-                <button id="discord-login" class="discord-btn">
-                    <svg width="20" height="20" viewBox="0 0 71 55" fill="none">
-                        <path d="M60.1045 4.8978C55.5792 2.8214 50.7265 1.2916 45.6527 0.41542C45.5603 0.39851 45.468 0.440769 45.4204 0.525289C44.7963 1.6353 44.105 3.0834 43.6209 4.2216C38.1637 3.4046 32.7345 3.4046 27.3892 4.2216C26.905 3.0581 26.1886 1.6353 25.5617 0.525289C25.5141 0.443589 25.4218 0.40133 25.3294 0.41542C20.2584 1.2888 15.4057 2.8186 10.8776 4.8978C10.8384 4.9147 10.8048 4.9429 10.7825 4.9795C1.57795 18.7309 -0.943561 32.1443 0.293408 45.3914C0.299005 45.4562 0.335386 45.5182 0.385761 45.5576C6.45866 50.0174 12.3413 52.7249 18.1147 54.5195C18.2071 54.5477 18.305 54.5139 18.3638 54.4378C19.7295 52.5728 20.9469 50.6063 21.9907 48.5383C22.0523 48.4172 21.9935 48.2735 21.8676 48.2256C19.9366 47.4931 18.0979 46.6 16.3292 45.5858C16.1893 45.5041 16.1781 45.304 16.3068 45.2082C16.679 44.9293 17.0513 44.6391 17.4067 44.3461C17.471 44.2926 17.5606 44.2813 17.6362 44.3151C29.2558 49.6202 41.8354 49.6202 53.3179 44.3151C53.3935 44.2785 53.4831 44.2898 53.5502 44.3433C53.9057 44.6363 54.2779 44.9293 54.6529 45.2082C54.7816 45.304 54.7732 45.5041 54.6333 45.5858C52.8646 46.6197 51.0259 47.4931 49.0921 48.2228C48.9662 48.2707 48.9102 48.4172 48.9718 48.5383C50.038 50.6034 51.2554 52.5699 52.5959 54.435C52.6519 54.5139 52.7526 54.5477 52.845 54.5195C58.6464 52.7249 64.529 50.0174 70.6019 45.5576C70.6551 45.5182 70.6887 45.459 70.6943 45.3942C72.1747 30.0791 68.2147 16.7757 60.1968 4.9823C60.1772 4.9429 60.1437 4.9147 60.1045 4.8978ZM23.7259 37.3253C20.2276 37.3253 17.3451 34.1136 17.3451 30.1693C17.3451 26.225 20.1717 23.0133 23.7259 23.0133C27.308 23.0133 30.1626 26.2532 30.1066 30.1693C30.1066 34.1136 27.28 37.3253 23.7259 37.3253ZM47.3178 37.3253C43.8196 37.3253 40.9371 34.1136 40.9371 30.1693C40.9371 26.225 43.7636 23.0133 47.3178 23.0133C50.9 23.0133 53.7545 26.2532 53.6986 30.1693C53.6986 34.1136 50.9 37.3253 47.3178 37.3253Z" fill="currentColor"/>
-                    </svg>
-                    Login with Discord
-                </button>
-                <div id="user-info" style="display: none;">
-                    <img id="user-avatar" class="user-avatar" alt="Avatar">
-                    <span id="user-name"></span>
-                    <button id="logout-btn" class="logout-btn">Logout</button>
-                </div>
+                <span class="logo-text">LYX Studios</span>
             </div>
         </div>
-    </nav>
+    </header>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <!-- Home Page -->
-        <div id="home-page" class="page active">
-            <div class="hero">
-                <img src="lyx.png" alt="LYX Logo" class="hero-logo">
-                <h1>Welcome to LYX Studios! 🎮</h1>
-                <p class="hero-subtitle">Your ultimate roleplay experience awaits</p>
-                <div class="hero-buttons">
-                    <button class="btn-primary" onclick="navigateTo('guide')">🚀 Get Started</button>
-                    <button class="btn-secondary" onclick="navigateTo('help')">💬 Need Help?</button>
-                </div>
-            </div>
-            
-            <div class="features">
-                <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
-                    <h3>Quality Roleplay</h3>
-                    <p>Immerse yourself in a realistic and engaging roleplay environment</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">👥</div>
-                    <h3>Active Community</h3>
-                    <p>Join our friendly and active player base</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Custom Content</h3>
-                    <p>Unique vehicles, scripts, and features exclusive to LYX</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🛡️</div>
-                    <h3>Professional Staff</h3>
-                    <p>Dedicated team ensuring the best experience</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Start Guide Page -->
-        <div id="guide-page" class="page">
-            <div class="content-container">
-                <h1>📖 Getting Started Guide</h1>
-                
-                <div class="guide-section">
-                    <h2>🎯 Step 1: Join Our Discord</h2>
-                    <p>First things first! Join our Discord community to stay updated and connect with other players.</p>
-                    <ul>
-                        <li>Get server announcements and updates</li>
-                        <li>Chat with the community</li>
-                        <li>Get support from staff members</li>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <!-- Getting Started Section -->
+                <div class="sidebar-section">
+                    <h3 class="section-title">🚀 START HERE</h3>
+                    <ul class="sidebar-menu">
+                        <li><a href="#" data-page="home" class="sidebar-link active">Welcome</a></li>
+                        <li><a href="#" data-page="guide" class="sidebar-link">Quick Start Guide</a></li>
+                        <li><a href="#" data-page="help" class="sidebar-link">FAQ & Troubleshooting</a></li>
                     </ul>
                 </div>
 
-                <div class="guide-section">
-                    <h2>📥 Step 2: Install FiveM</h2>
-                    <p>Download and install FiveM from their official website:</p>
-                    <ol>
-                        <li>Visit <a href="https://fivem.net" target="_blank">fivem.net</a></li>
-                        <li>Download FiveM</li>
-                        <li>Run the installer</li>
-                        <li>Launch FiveM once installed</li>
-                    </ol>
-                </div>
-
-                <div class="guide-section">
-                    <h2>🔍 Step 3: Connect to LYX Server</h2>
-                    <p>Finding and joining our server:</p>
-                    <ol>
-                        <li>Open FiveM</li>
-                        <li>Press F8 to open console</li>
-                        <li>Type: <code>connect [server-ip]</code></li>
-                        <li>Wait for resources to load</li>
-                    </ol>
-                </div>
-
-                <div class="guide-section">
-                    <h2>📋 Step 4: Review Server Rules</h2>
-                    <p>Make sure to read and understand our server rules:</p>
-                    <ul>
-                        <li>✅ No RDM (Random Deathmatch)</li>
-                        <li>✅ No VDM (Vehicle Deathmatch)</li>
-                        <li>✅ Stay in character at all times</li>
-                        <li>✅ Respect other players and staff</li>
-                        <li>✅ No exploiting or cheating</li>
-                        <li>✅ Follow RP scenarios realistically</li>
+                <!-- Information Section -->
+                <div class="sidebar-section">
+                    <h3 class="section-title">📚 INFORMATION</h3>
+                    <ul class="sidebar-menu">
+                        <li><a href="#" data-page="store" class="sidebar-link">Server Store</a></li>
+                        <li><a href="#" data-page="rules" class="sidebar-link">Server Rules</a></li>
+                        <li><a href="#" data-page="features" class="sidebar-link">Server Features</a></li>
                     </ul>
                 </div>
 
-                <div class="guide-section">
-                    <h2>🎮 Step 5: Create Your Character</h2>
-                    <p>Time to create your character and start your journey:</p>
-                    <ol>
-                        <li>Choose your character's appearance</li>
-                        <li>Select your starting job</li>
-                        <li>Read the tutorial prompts</li>
-                        <li>Start exploring the city!</li>
-                    </ol>
+                <!-- Guides Section -->
+                <div class="sidebar-section">
+                    <h3 class="section-title">📖 GUIDES</h3>
+                    <ul class="sidebar-menu">
+                        <li><a href="#" data-page="startguide" class="sidebar-link">Starter Guide</a></li>
+                        <li><a href="#" data-page="gangguide" class="sidebar-link">Gang Guide</a></li>
+                        <li><a href="#" data-page="weaponsguide" class="sidebar-link">Weapons Guide</a></li>
+                        <li><a href="#" data-page="vehiclesguide" class="sidebar-link">Vehicles Guide</a></li>
+                        <li><a href="#" data-page="controlsguide" class="sidebar-link">Basic Controls</a></li>
+                        <li><a href="#" data-page="marketplaceguide" class="sidebar-link">Marketplace</a></li>
+                        <li><a href="#" data-page="zonesguide" class="sidebar-link">Zones Guide</a></li>
+                        <li><a href="#" data-page="jobsguide" class="sidebar-link">Jobs Guide</a></li>
+                        <li><a href="#" data-page="licensesguide" class="sidebar-link">Licenses Guide</a></li>
+                        <li><a href="#" data-page="loansharking" class="sidebar-link">Loan Sharking Guide</a></li>
+                        <li><a href="#" data-page="eventsguide" class="sidebar-link">Server Events Guide</a></li>
+                        <li><a href="#" data-page="policeguide" class="sidebar-link">Police Guide</a></li>
+                    </ul>
                 </div>
 
-                <div class="tips-box">
-                    <h3>💡 Pro Tips</h3>
-                    <ul>
-                        <li>🎤 Always have a working microphone for RP</li>
-                        <li>📚 Learn the keybinds and controls</li>
-                        <li>👋 Introduce yourself to other players IC (In Character)</li>
-                        <li>💰 Start with legal jobs to earn money</li>
-                        <li>🚗 Don't rush - enjoy the roleplay experience!</li>
-                    </ul>
+                <!-- Footer Text -->
+                <div class="sidebar-footer">
+                    <p><strong>LYX Studios</strong></p>
+                    <p>Your Ultimate Roleplay Experience</p>
                 </div>
             </div>
-        </div>
+        </aside>
 
-        <!-- Help Page -->
-        <div id="help-page" class="page">
-            <div class="content-container">
-                <h1>❓ Help & Support</h1>
-                
-                <div class="help-section">
-                    <h2>🔧 Common Issues</h2>
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Home Page -->
+            <div id="home-page" class="page active">
+                <div class="hero" style="margin-bottom: 3rem;">
+                    <img src="lyx.png" alt="LYX Logo" class="hero-logo">
+                    <h1>Welcome to LYX Studios! 🎮</h1>
+                    <p class="hero-subtitle">Your ultimate roleplay experience awaits</p>
+                </div>
+
+                <div class="features">
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Quality Roleplay</h3>
+                        <p>Immerse yourself in a realistic and engaging roleplay environment</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">👥</div>
+                        <h3>Active Community</h3>
+                        <p>Join our friendly and active player base</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Custom Content</h3>
+                        <p>Unique vehicles, scripts, and features exclusive to LYX</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🛡️</div>
+                        <h3>Professional Staff</h3>
+                        <p>Dedicated team ensuring the best experience</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Start Guide Page -->
+            <div id="guide-page" class="page">
+                <div class="content-container">
+                    <h1>📖 Quick Start Guide</h1>
                     
-                    <div class="faq-item">
-                        <h3>🚫 Cannot Connect to Server</h3>
-                        <p><strong>Solutions:</strong></p>
+                    <div class="guide-section">
+                        <h2>🎯 Step 1: Join Our Discord</h2>
+                        <p>First things first! Join our Discord community to stay updated and connect with other players.</p>
                         <ul>
-                            <li>Verify FiveM is up to date</li>
-                            <li>Check if the server is online</li>
-                            <li>Restart FiveM and try again</li>
-                            <li>Clear FiveM cache (%localappdata%\FiveM\FiveM.app\data\cache)</li>
+                            <li>Get server announcements and updates</li>
+                            <li>Chat with the community</li>
+                            <li>Get support from staff members</li>
                         </ul>
                     </div>
 
-                    <div class="faq-item">
-                        <h3>⚠️ Game Crashes or Freezes</h3>
-                        <p><strong>Solutions:</strong></p>
+                    <div class="guide-section">
+                        <h2>📥 Step 2: Install FiveM</h2>
+                        <p>Download and install FiveM from their official website:</p>
+                        <ol>
+                            <li>Visit <a href="https://fivem.net" target="_blank">fivem.net</a></li>
+                            <li>Download FiveM</li>
+                            <li>Run the installer</li>
+                            <li>Launch FiveM once installed</li>
+                        </ol>
+                    </div>
+
+                    <div class="guide-section">
+                        <h2>🔍 Step 3: Connect to LYX Server</h2>
+                        <p>Finding and joining our server:</p>
+                        <ol>
+                            <li>Open FiveM</li>
+                            <li>Press F8 to open console</li>
+                            <li>Type: <code>connect [server-ip]</code></li>
+                            <li>Wait for resources to load</li>
+                        </ol>
+                    </div>
+
+                    <div class="guide-section">
+                        <h2>📋 Step 4: Review Server Rules</h2>
+                        <p>Make sure to read and understand our server rules:</p>
                         <ul>
-                            <li>Update your graphics drivers</li>
-                            <li>Lower your graphics settings</li>
-                            <li>Close background applications</li>
-                            <li>Verify GTA V game files</li>
+                            <li>✅ No RDM (Random Deathmatch)</li>
+                            <li>✅ No VDM (Vehicle Deathmatch)</li>
+                            <li>✅ Stay in character at all times</li>
+                            <li>✅ Respect other players and staff</li>
+                            <li>✅ No exploiting or cheating</li>
+                            <li>✅ Follow RP scenarios realistically</li>
                         </ul>
                     </div>
 
-                    <div class="faq-item">
-                        <h3>🎤 Voice Chat Not Working</h3>
-                        <p><strong>Solutions:</strong></p>
+                    <div class="guide-section">
+                        <h2>🎮 Step 5: Create Your Character</h2>
+                        <p>Time to create your character and start your journey:</p>
+                        <ol>
+                            <li>Choose your character's appearance</li>
+                            <li>Select your starting job</li>
+                            <li>Read the tutorial prompts</li>
+                            <li>Start exploring the city!</li>
+                        </ol>
+                    </div>
+
+                    <div class="tips-box">
+                        <h3>💡 Pro Tips</h3>
                         <ul>
-                            <li>Check Windows microphone permissions</li>
-                            <li>Verify microphone is set as default device</li>
-                            <li>Press N to toggle voice chat on/off</li>
-                            <li>Check in-game voice settings</li>
+                            <li>🎤 Always have a working microphone for RP</li>
+                            <li>📚 Learn the keybinds and controls</li>
+                            <li>👋 Introduce yourself to other players IC (In Character)</li>
+                            <li>💰 Start with legal jobs to earn money</li>
+                            <li>🚗 Don't rush - enjoy the roleplay experience!</li>
                         </ul>
-                    </div>
-
-                    <div class="faq-item">
-                        <h3>💰 Lost Items or Money</h3>
-                        <p><strong>Solutions:</strong></p>
-                        <ul>
-                            <li>Check if it was due to server restart</li>
-                            <li>Report to staff with evidence</li>
-                            <li>Create a ticket in Discord</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="help-section">
-                    <h2>🎮 Keybinds & Controls</h2>
-                    <div class="keybinds-grid">
-                        <div class="keybind-item">
-                            <kbd>F1</kbd>
-                            <span>Phone/Menu</span>
-                        </div>
-                        <div class="keybind-item">
-                            <kbd>F2</kbd>
-                            <span>Inventory</span>
-                        </div>
-                        <div class="keybind-item">
-                            <kbd>F3</kbd>
-                            <span>Animations</span>
-                        </div>
-                        <div class="keybind-item">
-                            <kbd>F6</kbd>
-                            <span>Job Menu</span>
-                        </div>
-                        <div class="keybind-item">
-                            <kbd>N</kbd>
-                            <span>Toggle Voice</span>
-                        </div>
-                        <div class="keybind-item">
-                            <kbd>T</kbd>
-                            <span>Chat</span>
-                        </div>
-                        <div class="keybind-item">
-                            <kbd>X</kbd>
-                            <span>Hands Up</span>
-                        </div>
-                        <div class="keybind-item">
-                            <kbd>Z</kbd>
-                            <span>Open Radial Menu</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="help-section">
-                    <h2>📞 Contact Support</h2>
-                    <p>Still need help? Reach out to us:</p>
-                    <div class="contact-options">
-                        <div class="contact-card">
-                            <div class="contact-icon">💬</div>
-                            <h3>Discord Ticket</h3>
-                            <p>Create a support ticket in our Discord server for personalized help</p>
-                        </div>
-                        <div class="contact-card">
-                            <div class="contact-icon">👮</div>
-                            <h3>In-Game Report</h3>
-                            <p>Use /report command to contact staff while playing</p>
-                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Store Page -->
-        <div id="store-page" class="page">
-            <div class="content-container">
-                <h1>🛒 LYX Studios Store</h1>
-                <p class="store-subtitle">Support the server and get exclusive perks!</p>
-                
-                <div class="store-grid">
-                    <div class="store-item">
-                        <div class="store-badge">⭐</div>
-                        <h3>VIP Bronze</h3>
-                        <div class="price">$5.00/month</div>
-                        <ul class="perk-list">
-                            <li>✅ Priority queue access</li>
-                            <li>✅ Custom chat color</li>
-                            <li>✅ VIP Discord role</li>
-                            <li>✅ Exclusive emotes</li>
-                        </ul>
-                        <button class="btn-primary">Purchase</button>
-                    </div>
-
-                    <div class="store-item featured">
-                        <div class="store-badge">💎</div>
-                        <div class="popular-tag">POPULAR</div>
-                        <h3>VIP Silver</h3>
-                        <div class="price">$10.00/month</div>
-                        <ul class="perk-list">
-                            <li>✅ All Bronze perks</li>
-                            <li>✅ Higher priority queue</li>
-                            <li>✅ Custom vehicle spawn</li>
-                            <li>✅ Extra character slot</li>
-                            <li>✅ Exclusive clothing</li>
-                        </ul>
-                        <button class="btn-primary">Purchase</button>
-                    </div>
-
-                    <div class="store-item">
-                        <div class="store-badge">👑</div>
-                        <h3>VIP Gold</h3>
-                        <div class="price">$20.00/month</div>
-                        <ul class="perk-list">
-                            <li>✅ All Silver perks</li>
-                            <li>✅ Highest priority queue</li>
-                            <li>✅ Custom name color</li>
-                            <li>✅ 2 Extra character slots</li>
-                            <li>✅ Exclusive vehicles</li>
-                            <li>✅ VIP lounge access</li>
-                        </ul>
-                        <button class="btn-primary">Purchase</button>
-                    </div>
-
-                    <div class="store-item">
-                        <div class="store-badge">🚗</div>
-                        <h3>Vehicle Package</h3>
-                        <div class="price">$15.00</div>
-                        <ul class="perk-list">
-                            <li>✅ 3 Custom vehicles</li>
-                            <li>✅ Exclusive colors</li>
-                            <li>✅ Custom license plate</li>
-                            <li>✅ Lifetime ownership</li>
-                        </ul>
-                        <button class="btn-primary">Purchase</button>
-                    </div>
-
-                    <div class="store-item">
-                        <div class="store-badge">🏠</div>
-                        <h3>Property Package</h3>
-                        <div class="price">$25.00</div>
-                        <ul class="perk-list">
-                            <li>✅ Premium property</li>
-                            <li>✅ Fully furnished</li>
-                            <li>✅ Custom interior</li>
-                            <li>✅ Lifetime ownership</li>
-                        </ul>
-                        <button class="btn-primary">Purchase</button>
-                    </div>
-
-                    <div class="store-item">
-                        <div class="store-badge">💰</div>
-                        <h3>Starter Pack</h3>
-                        <div class="price">$7.50</div>
-                        <ul class="perk-list">
-                            <li>✅ $50,000 in-game cash</li>
-                            <li>✅ Starter vehicle</li>
-                            <li>✅ Basic weapons license</li>
-                            <li>✅ Phone & extras</li>
-                        </ul>
-                        <button class="btn-primary">Purchase</button>
-                    </div>
-                </div>
-
-                <div class="store-notice">
-                    <h3>⚠️ Important Notice</h3>
-                    <p>All purchases are final. Funds go towards server maintenance and development. By purchasing, you agree to our Terms of Service. Virtual items have no real-world value.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Staff Zone Page -->
-        <div id="staff-page" class="page">
-            <div class="content-container">
-                <div id="staff-access-denied">
-                    <div class="access-denied">
-                        <div class="lock-icon">🔒</div>
-                        <h2>Access Denied</h2>
-                        <p>This area is restricted to staff members only.</p>
-                        <p>Please log in with Discord to verify your permissions.</p>
-                        <button id="staff-login-prompt" class="btn-primary">
-                            <svg width="20" height="20" viewBox="0 0 71 55" fill="none">
-                                <path d="M60.1045 4.8978C55.5792 2.8214 50.7265 1.2916 45.6527 0.41542C45.5603 0.39851 45.468 0.440769 45.4204 0.525289C44.7963 1.6353 44.105 3.0834 43.6209 4.2216C38.1637 3.4046 32.7345 3.4046 27.3892 4.2216C26.905 3.0581 26.1886 1.6353 25.5617 0.525289C25.5141 0.443589 25.4218 0.40133 25.3294 0.41542C20.2584 1.2888 15.4057 2.8186 10.8776 4.8978C10.8384 4.9147 10.8048 4.9429 10.7825 4.9795C1.57795 18.7309 -0.943561 32.1443 0.293408 45.3914C0.299005 45.4562 0.335386 45.5182 0.385761 45.5576C6.45866 50.0174 12.3413 52.7249 18.1147 54.5195C18.2071 54.5477 18.305 54.5139 18.3638 54.4378C19.7295 52.5728 20.9469 50.6063 21.9907 48.5383C22.0523 48.4172 21.9935 48.2735 21.8676 48.2256C19.9366 47.4931 18.0979 46.6 16.3292 45.5858C16.1893 45.5041 16.1781 45.304 16.3068 45.2082C16.679 44.9293 17.0513 44.6391 17.4067 44.3461C17.471 44.2926 17.5606 44.2813 17.6362 44.3151C29.2558 49.6202 41.8354 49.6202 53.3179 44.3151C53.3935 44.2785 53.4831 44.2898 53.5502 44.3433C53.9057 44.6363 54.2779 44.9293 54.6529 45.2082C54.7816 45.304 54.7732 45.5041 54.6333 45.5858C52.8646 46.6197 51.0259 47.4931 49.0921 48.2228C48.9662 48.2707 48.9102 48.4172 48.9718 48.5383C50.038 50.6034 51.2554 52.5699 52.5959 54.435C52.6519 54.5139 52.7526 54.5477 52.845 54.5195C58.6464 52.7249 64.529 50.0174 70.6019 45.5576C70.6551 45.5182 70.6887 45.459 70.6943 45.3942C72.1747 30.0791 68.2147 16.7757 60.1968 4.9823C60.1772 4.9429 60.1437 4.9147 60.1045 4.8978ZM23.7259 37.3253C20.2276 37.3253 17.3451 34.1136 17.3451 30.1693C17.3451 26.225 20.1717 23.0133 23.7259 23.0133C27.308 23.0133 30.1626 26.2532 30.1066 30.1693C30.1066 34.1136 27.28 37.3253 23.7259 37.3253ZM47.3178 37.3253C43.8196 37.3253 40.9371 34.1136 40.9371 30.1693C40.9371 26.225 43.7636 23.0133 47.3178 23.0133C50.9 23.0133 53.7545 26.2532 53.6986 30.1693C53.6986 34.1136 50.9 37.3253 47.3178 37.3253Z" fill="currentColor"/>
-                            </svg>
-                            Login with Discord
-                        </button>
-                    </div>
-                </div>
-
-                <div id="staff-content" style="display: none;">
-                    <h1>👮 Staff Zone</h1>
-                    <p class="staff-welcome">Welcome to the staff area, <span id="staff-username"></span>!</p>
+            <!-- Help & FAQ Page -->
+            <div id="help-page" class="page">
+                <div class="content-container">
+                    <h1>❓ Help & FAQ</h1>
                     
-                    <div class="staff-grid">
-                        <div class="staff-card">
-                            <h3>📋 Staff Guidelines</h3>
-                            <div class="staff-info">
-                                <h4>General Rules:</h4>
-                                <ul>
-                                    <li>🔹 Always remain professional and respectful</li>
-                                    <li>🔹 Use staff powers responsibly</li>
-                                    <li>🔹 Document all administrative actions</li>
-                                    <li>🔹 Never abuse your position</li>
-                                    <li>🔹 Maintain confidentiality</li>
-                                </ul>
-                                
-                                <h4>Response Times:</h4>
-                                <ul>
-                                    <li>⏱️ Reports: Within 5-10 minutes</li>
-                                    <li>⏱️ Tickets: Within 30 minutes</li>
-                                    <li>⏱️ Appeals: Within 24 hours</li>
-                                </ul>
-                            </div>
+                    <div class="help-section">
+                        <h2>🔧 Common Issues</h2>
+                        
+                        <div class="faq-item">
+                            <h3>🚫 Cannot Connect to Server</h3>
+                            <p><strong>Solutions:</strong></p>
+                            <ul>
+                                <li>Verify FiveM is up to date</li>
+                                <li>Check if the server is online</li>
+                                <li>Restart FiveM and try again</li>
+                                <li>Clear FiveM cache (%localappdata%\FiveM\FiveM.app\data\cache)</li>
+                            </ul>
                         </div>
 
-                        <div class="staff-card">
-                            <h3>🛠️ Staff Commands</h3>
-                            <div class="staff-commands">
-                                <div class="cmd-item">
-                                    <code>/tp [id]</code>
-                                    <span>Teleport to player</span>
-                                </div>
-                                <div class="cmd-item">
-                                    <code>/bring [id]</code>
-                                    <span>Bring player to you</span>
-                                </div>
-                                <div class="cmd-item">
-                                    <code>/goto [x] [y] [z]</code>
-                                    <span>Teleport to coordinates</span>
-                                </div>
-                                <div class="cmd-item">
-                                    <code>/kick [id] [reason]</code>
-                                    <span>Kick player from server</span>
-                                </div>
-                                <div class="cmd-item">
-                                    <code>/ban [id] [time] [reason]</code>
-                                    <span>Ban player</span>
-                                </div>
-                                <div class="cmd-item">
-                                    <code>/warn [id] [reason]</code>
-                                    <span>Issue warning</span>
-                                </div>
-                                <div class="cmd-item">
-                                    <code>/freeze [id]</code>
-                                    <span>Freeze/unfreeze player</span>
-                                </div>
-                                <div class="cmd-item">
-                                    <code>/noclip</code>
-                                    <span>Toggle noclip mode</span>
-                                </div>
-                                <div class="cmd-item">
-                                    <code>/slay [id]</code>
-                                    <span>Kill player (admin situations)</span>
-                                </div>
-                                <div class="cmd-item">
-                                    <code>/revive [id]</code>
-                                    <span>Revive player</span>
-                                </div>
-                                <div class="cmd-item">
-                                    <code>/announce [msg]</code>
-                                    <span>Server-wide announcement</span>
-                                </div>
-                                <div class="cmd-item">
-                                    <code>/spectate [id]</code>
-                                    <span>Spectate player</span>
-                                </div>
-                            </div>
+                        <div class="faq-item">
+                            <h3>⚠️ Game Crashes or Freezes</h3>
+                            <p><strong>Solutions:</strong></p>
+                            <ul>
+                                <li>Update your graphics drivers</li>
+                                <li>Lower your graphics settings</li>
+                                <li>Close background applications</li>
+                                <li>Verify GTA V game files</li>
+                            </ul>
                         </div>
 
-                        <div class="staff-card">
-                            <h3>⚖️ Punishment Guidelines</h3>
-                            <div class="staff-info">
-                                <h4>RDM (Random Deathmatch):</h4>
-                                <ul>
-                                    <li>1st: Warning</li>
-                                    <li>2nd: 1 day ban</li>
-                                    <li>3rd: 7 day ban</li>
-                                    <li>4th: 30 day ban</li>
-                                </ul>
-                                
-                                <h4>VDM (Vehicle Deathmatch):</h4>
-                                <ul>
-                                    <li>1st: Warning</li>
-                                    <li>2nd: 3 day ban</li>
-                                    <li>3rd: 14 day ban</li>
-                                    <li>4th: Permanent ban</li>
-                                </ul>
-
-                                <h4>FailRP:</h4>
-                                <ul>
-                                    <li>1st: Warning</li>
-                                    <li>2nd: 1 day ban</li>
-                                    <li>3rd: 7 day ban</li>
-                                </ul>
-
-                                <h4>Exploiting/Cheating:</h4>
-                                <ul>
-                                    <li>Immediate permanent ban</li>
-                                </ul>
-
-                                <h4>Disrespect to Staff:</h4>
-                                <ul>
-                                    <li>1st: Warning</li>
-                                    <li>2nd: 3 day ban</li>
-                                    <li>3rd: 14 day ban</li>
-                                </ul>
-                            </div>
+                        <div class="faq-item">
+                            <h3>🎤 Voice Chat Not Working</h3>
+                            <p><strong>Solutions:</strong></p>
+                            <ul>
+                                <li>Check Windows microphone permissions</li>
+                                <li>Verify microphone is set as default device</li>
+                                <li>Press N to toggle voice chat on/off</li>
+                                <li>Check in-game voice settings</li>
+                            </ul>
                         </div>
 
-                        <div class="staff-card">
-                            <h3>📝 How to Handle Reports</h3>
-                            <div class="staff-info">
-                                <ol>
-                                    <li><strong>Acknowledge:</strong> Let the player know you're handling their report</li>
-                                    <li><strong>Investigate:</strong> Gather evidence and witness statements</li>
-                                    <li><strong>Listen:</strong> Hear both sides of the story</li>
-                                    <li><strong>Review:</strong> Check logs and evidence carefully</li>
-                                    <li><strong>Decide:</strong> Make a fair decision based on rules</li>
-                                    <li><strong>Document:</strong> Log the incident in staff Discord</li>
-                                    <li><strong>Follow-up:</strong> Inform involved parties of the outcome</li>
-                                </ol>
+                        <div class="faq-item">
+                            <h3>💰 Lost Items or Money</h3>
+                            <p><strong>Solutions:</strong></p>
+                            <ul>
+                                <li>Check if it was due to server restart</li>
+                                <li>Report to staff with evidence</li>
+                                <li>Create a ticket in Discord</li>
+                            </ul>
+                        </div>
+                    </div>
 
-                                <h4>Important Tips:</h4>
-                                <ul>
-                                    <li>✅ Always remain neutral and objective</li>
-                                    <li>✅ Take your time - don't rush decisions</li>
-                                    <li>✅ Ask for help from senior staff if unsure</li>
-                                    <li>✅ Screenshot/record evidence when possible</li>
-                                    <li>✅ Be consistent with punishments</li>
-                                </ul>
+                    <div class="help-section">
+                        <h2>🎮 Keybinds & Controls</h2>
+                        <div class="keybinds-grid">
+                            <div class="keybind-item">
+                                <kbd>F1</kbd>
+                                <span>Phone/Menu</span>
+                            </div>
+                            <div class="keybind-item">
+                                <kbd>F2</kbd>
+                                <span>Inventory</span>
+                            </div>
+                            <div class="keybind-item">
+                                <kbd>F3</kbd>
+                                <span>Animations</span>
+                            </div>
+                            <div class="keybind-item">
+                                <kbd>F6</kbd>
+                                <span>Job Menu</span>
+                            </div>
+                            <div class="keybind-item">
+                                <kbd>N</kbd>
+                                <span>Toggle Voice</span>
+                            </div>
+                            <div class="keybind-item">
+                                <kbd>T</kbd>
+                                <span>Chat</span>
+                            </div>
+                            <div class="keybind-item">
+                                <kbd>X</kbd>
+                                <span>Hands Up</span>
+                            </div>
+                            <div class="keybind-item">
+                                <kbd>Z</kbd>
+                                <span>Radial Menu</span>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="staff-card">
-                            <h3>🎯 Best Practices</h3>
-                            <div class="staff-info">
-                                <ul>
-                                    <li>🔸 Stay active in staff chat</li>
-                                    <li>🔸 Attend staff meetings when possible</li>
-                                    <li>🔸 Keep up with server rule changes</li>
-                                    <li>🔸 Report bugs and issues to developers</li>
-                                    <li>🔸 Be a positive role model for the community</li>
-                                    <li>🔸 Never discuss staff matters publicly</li>
-                                    <li>🔸 Use staff channels for private discussions</li>
-                                    <li>🔸 Take breaks to avoid burnout</li>
-                                    <li>🔸 Communicate with other staff before major actions</li>
-                                    <li>🔸 Keep staff tools and information confidential</li>
-                                </ul>
+                    <div class="help-section">
+                        <h2>📞 Contact Support</h2>
+                        <p>Still need help? Reach out to us:</p>
+                        <div class="contact-options">
+                            <div class="contact-card">
+                                <div class="contact-icon">💬</div>
+                                <h3>Discord Ticket</h3>
+                                <p>Create a support ticket in our Discord server for personalized help</p>
                             </div>
-                        </div>
-
-                        <div class="staff-card">
-                            <h3>📞 Staff Contacts</h3>
-                            <div class="staff-info">
-                                <p>For urgent matters, contact:</p>
-                                <ul>
-                                    <li>👑 <strong>Server Owner:</strong> Use @Owner in Discord</li>
-                                    <li>⚡ <strong>Head Admin:</strong> Use @Head Admin in Discord</li>
-                                    <li>🛡️ <strong>Senior Staff:</strong> Use @Senior Staff in Discord</li>
-                                </ul>
-                                
-                                <p><strong>Staff Discord Channels:</strong></p>
-                                <ul>
-                                    <li>#staff-chat - General staff discussion</li>
-                                    <li>#staff-reports - Report logging</li>
-                                    <li>#staff-announcements - Important updates</li>
-                                </ul>
+                            <div class="contact-card">
+                                <div class="contact-icon">👮</div>
+                                <h3>In-Game Report</h3>
+                                <p>Use /report command to contact staff while playing</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>LYX Studios</h3>
-                <p>The ultimate roleplay experience</p>
+            <!-- Store Page -->
+            <div id="store-page" class="page">
+                <div class="content-container">
+                    <h1>🛒 LYX Studios Store</h1>
+                    <p class="store-subtitle">Support the server and get exclusive perks!</p>
+                    
+                    <div class="store-grid">
+                        <div class="store-item">
+                            <div class="store-badge">⭐</div>
+                            <h3>VIP Bronze</h3>
+                            <div class="price">$5.00/month</div>
+                            <ul class="perk-list">
+                                <li>✅ Priority queue access</li>
+                                <li>✅ Custom chat color</li>
+                                <li>✅ VIP Discord role</li>
+                                <li>✅ Exclusive emotes</li>
+                            </ul>
+                            <button class="btn-primary">Purchase</button>
+                        </div>
+
+                        <div class="store-item featured">
+                            <div class="store-badge">💎</div>
+                            <div class="popular-tag">POPULAR</div>
+                            <h3>VIP Silver</h3>
+                            <div class="price">$10.00/month</div>
+                            <ul class="perk-list">
+                                <li>✅ All Bronze perks</li>
+                                <li>✅ Higher priority queue</li>
+                                <li>✅ Custom vehicle spawn</li>
+                                <li>✅ Extra character slot</li>
+                                <li>✅ Exclusive clothing</li>
+                            </ul>
+                            <button class="btn-primary">Purchase</button>
+                        </div>
+
+                        <div class="store-item">
+                            <div class="store-badge">👑</div>
+                            <h3>VIP Gold</h3>
+                            <div class="price">$20.00/month</div>
+                            <ul class="perk-list">
+                                <li>✅ All Silver perks</li>
+                                <li>✅ Highest priority queue</li>
+                                <li>✅ Custom name color</li>
+                                <li>✅ 2 Extra character slots</li>
+                                <li>✅ Exclusive vehicles</li>
+                                <li>✅ VIP lounge access</li>
+                            </ul>
+                            <button class="btn-primary">Purchase</button>
+                        </div>
+
+                        <div class="store-item">
+                            <div class="store-badge">🚗</div>
+                            <h3>Vehicle Package</h3>
+                            <div class="price">$15.00</div>
+                            <ul class="perk-list">
+                                <li>✅ 3 Custom vehicles</li>
+                                <li>✅ Exclusive colors</li>
+                                <li>✅ Custom license plate</li>
+                                <li>✅ Lifetime ownership</li>
+                            </ul>
+                            <button class="btn-primary">Purchase</button>
+                        </div>
+
+                        <div class="store-item">
+                            <div class="store-badge">🏠</div>
+                            <h3>Property Package</h3>
+                            <div class="price">$25.00</div>
+                            <ul class="perk-list">
+                                <li>✅ Premium property</li>
+                                <li>✅ Fully furnished</li>
+                                <li>✅ Custom interior</li>
+                                <li>✅ Lifetime ownership</li>
+                            </ul>
+                            <button class="btn-primary">Purchase</button>
+                        </div>
+
+                        <div class="store-item">
+                            <div class="store-badge">💰</div>
+                            <h3>Starter Pack</h3>
+                            <div class="price">$7.50</div>
+                            <ul class="perk-list">
+                                <li>✅ $50,000 in-game cash</li>
+                                <li>✅ Starter vehicle</li>
+                                <li>✅ Basic weapons license</li>
+                                <li>✅ Phone & extras</li>
+                            </ul>
+                            <button class="btn-primary">Purchase</button>
+                        </div>
+                    </div>
+
+                    <div class="store-notice">
+                        <h3>⚠️ Important Notice</h3>
+                        <p>All purchases are final. Funds go towards server maintenance and development. By purchasing, you agree to our Terms of Service. Virtual items have no real-world value.</p>
+                    </div>
+                </div>
             </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="#" data-page="home">Home</a></li>
-                    <li><a href="#" data-page="guide">Start Guide</a></li>
-                    <li><a href="#" data-page="help">Help</a></li>
-                    <li><a href="#" data-page="store">Store</a></li>
-                </ul>
+
+            <!-- Rules Page -->
+            <div id="rules-page" class="page">
+                <div class="content-container">
+                    <h1>📋 Server Rules</h1>
+                    <p>Please read and follow these rules to ensure a positive experience for everyone.</p>
+                    
+                    <div class="rules-section">
+                        <h2>General Conduct</h2>
+                        <div class="rule-item">
+                            <h3>No Random Deathmatch (RDM)</h3>
+                            <p>You cannot kill another player without proper roleplay reason. All PvP must be initiated with proper RP.</p>
+                        </div>
+                        <div class="rule-item">
+                            <h3>No Vehicle Deathmatch (VDM)</h3>
+                            <p>Using your vehicle as a weapon is prohibited unless there is valid RP reason.</p>
+                        </div>
+                        <div class="rule-item">
+                            <h3>Stay In Character</h3>
+                            <p>Always maintain character. Breaking character is only allowed in OOC chat or designated areas.</p>
+                        </div>
+                        <div class="rule-item">
+                            <h3>Respect Others</h3>
+                            <p>Treat all players and staff with respect. Harassment, racism, and hate speech are prohibited.</p>
+                        </div>
+                    </div>
+
+                    <div class="rules-section">
+                        <h2>Roleplay Standards</h2>
+                        <div class="rule-item">
+                            <h3>Realistic Scenarios</h3>
+                            <p>Follow realistic roleplay. Don't do actions that don't make sense in the real world.</p>
+                        </div>
+                        <div class="rule-item">
+                            <h3>No Fail RP</h3>
+                            <p>Don't act out of character or perform unrealistic actions. Follow the flow of roleplay.</p>
+                        </div>
+                        <div class="rule-item">
+                            <h3>Communication</h3>
+                            <p>Use appropriate comms. Avoid meta gaming and use the right channels for communication.</p>
+                        </div>
+                    </div>
+
+                    <div class="rules-section">
+                        <h2>Exploits & Cheating</h2>
+                        <div class="rule-item">
+                            <h3>Zero Tolerance</h3>
+                            <p>Exploiting game mechanics or cheating will result in immediate permanent ban.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="footer-section">
-                <h3>Connect</h3>
-                <p>Join our Discord community</p>
+
+            <!-- Features Page -->
+            <div id="features-page" class="page">
+                <div class="content-container">
+                    <h1>⚡ Server Features</h1>
+                    
+                    <div class="features-list">
+                        <div class="feature-box">
+                            <h3>🚗 Custom Vehicles</h3>
+                            <p>Explore an extensive list of custom vehicles with unique customization options.</p>
+                        </div>
+                        <div class="feature-box">
+                            <h3>💼 Job System</h3>
+                            <p>Multiple job opportunities including police officer, taxi driver, mechanic, and more.</p>
+                        </div>
+                        <div class="feature-box">
+                            <h3>🏠 Property System</h3>
+                            <p>Buy and own properties. Decorate your home and store items.</p>
+                        </div>
+                        <div class="feature-box">
+                            <h3>💰 Economy</h3>
+                            <p>Realistic economy system with banks, ATMs, and trading.</p>
+                        </div>
+                        <div class="feature-box">
+                            <h3>👮 Police System</h3>
+                            <p>Full law enforcement system with arrests, fines, and jail time.</p>
+                        </div>
+                        <div class="feature-box">
+                            <h3>🏥 Hospital System</h3>
+                            <p>Medical roleplay with emergency response teams and treatment.</p>
+                        </div>
+                        <div class="feature-box">
+                            <h3>🎭 Character Customization</h3>
+                            <p>Create unique characters with extensive appearance and attribute customization.</p>
+                        </div>
+                        <div class="feature-box">
+                            <h3>🎤 Voice Communication</h3>
+                            <p>In-game voice chat with proximity mode for realistic communication.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 LYX Studios. All rights reserved.</p>
-        </div>
-    </footer>
+
+            <!-- Starter Guide Page -->
+            <div id="startguide-page" class="page">
+                <div class="content-container">
+                    <h1>🎮 Starter Guide</h1>
+                    <p>Everything you need to know to begin your journey in LYX Studios.</p>
+                    
+                    <div class="guide-section">
+                        <h2>✅ Step 1: Join Our Discord</h2>
+                        <p>To join LYX for the first time, you need to be in the Discord community. This is essential to stay connected with the server, get support from staff, and participate in events.</p>
+                        <ul>
+                            <li>Join our Discord server for announcements</li>
+                            <li>Connect with other players</li>
+                            <li>Get whitelisting and support from staff</li>
+                        </ul>
+                    </div>
+
+                    <div class="guide-section">
+                        <h2>🎯 Step 2: Complete the Tutorial</h2>
+                        <p>Upon joining, you'll be greeted with a tutorial which gives you the basics of how to start in LYX Studios. This tutorial is essential and covers:</p>
+                        <ul>
+                            <li>Basic character creation and customization</li>
+                            <li>Controls and key bindings</li>
+                            <li>How to navigate the city</li>
+                            <li>Basic roleplay mechanics</li>
+                            <li>First job opportunities</li>
+                        </ul>
+                        <p style="color: var(--accent); margin-top: 1rem;">Pay close attention during the tutorial - it covers important mechanics you'll need!</p>
+                    </div>
+
+                    <div class="guide-section">
+                        <h2>📋 Step 3: Review Server Rules</h2>
+                        <p>Once the tutorial is completed, go ahead and familiarize yourself with the rules of the server. Following the rules ensures a positive experience for everyone.</p>
+                        <button class="btn-primary" onclick="navigateTo('rules)" style="margin-top: 1rem;">📖 Read Server Rules</button>
+                    </div>
+
+                    <div class="tips-box">
+                        <h3>💡 Pro Tips for New Players</h3>
+                        <ul>
+                            <li>Take your time learning the mechanics - there's no rush</li>
+                            <li>Join roleplay situations and interact with other players IC</li>
+                            <li>Start with legal jobs to earn money and learn the economy</li>
+                            <li>Ask staff or experienced players for help if you're stuck</li>
+                            <li>Read the rules carefully to avoid warnings or bans</li>
+                        </ul>
+                    </div>
+
+                    <div class="guide-section">
+                        <h2>🆘 Need Help?</h2>
+                        <p>If you have any questions or run into issues:</p>
+                        <ul>
+                            <li>Check the <a href="#" onclick="navigateTo('help'); return false;" style="color: var(--primary-color);">Help & FAQ section</a></li>
+                            <li>Create a Discord ticket for staff support</li>
+                            <li>Ask in the Discord general chat for community help</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gang Guide Page -->
+            <div id="gangguide-page" class="page">
+                <div class="content-container">
+                    <h1>🔥 Gang Guide</h1>
+                    <p>Learn how to create and manage your gang on LYX Studios.</p>
+                    
+                    <div class="guide-section">
+                        <h2>💰 Step 1: Purchase Gang License</h2>
+                        <p>To create your own gang, you'll need to buy a gang license from the License Centre.</p>
+                        <div class="info-box" style="background: rgba(204, 0, 0, 0.1); border: 1px solid var(--primary-color); border-radius: 8px; padding: 1.5rem; margin: 1rem 0;">
+                            <h3 style="color: var(--primary-color);">💵 Gang License Cost: £500,000</h3>
+                            <p>This is a one-time investment to establish your gang on the server.</p>
+                        </div>
+                    </div>
+
+                    <div class="guide-section">
+                        <h2>🎮 Step 2: Create Your Gang</h2>
+                        <p>Once you've purchased the gang license, follow these steps:</p>
+                        <ol>
+                            <li>Press <kbd>F5</kbd> to open the gang creation menu</li>
+                            <li>You'll be greeted with loads of options and features that LYX gives to gang members and gang owners</li>
+                            <li>Customize your gang name, colors, and settings</li>
+                            <li>Start recruiting members to your gang</li>
+                        </ol>
+                    </div>
+
+                    <div class="guide-section">
+                        <h2>⬆️ Step 3: Level Up Your Gang</h2>
+                        <p>As your gang grows and becomes more active, you can level up and attain whitelist status which comes with exclusive perks!</p>
+                        <p style="color: var(--text-secondary); margin-top: 1rem;">Check out the Levels page to learn how to level up your gang and unlock special features.</p>
+                    </div>
+
+                    <div class="guide-section">
+                        <h2>🏆 Whitelist Perks</h2>
+                        <p>Once your gang reaches whitelist status, you unlock these exclusive features:</p>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0;">
+                            <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                                <h3 style="color: var(--primary-color); margin-bottom: 0.5rem;">🏠 Gang Houses</h3>
+                                <p>Exclusive hideouts and headquarters for your gang members</p>
+                            </div>
+                            <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                                <h3 style="color: var(--primary-color); margin-bottom: 0.5rem;">🚐 Custom Vans</h3>
+                                <p>Customized vehicles exclusive to your gang</p>
+                            </div>
+                            <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                                <h3 style="color: var(--primary-color); margin-bottom: 0.5rem;">🚗 Custom Cars</h3>
+                                <p>Unique vehicle designs for your gang members</p>
+                            </div>
+                            <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                                <h3 style="color: var(--primary-color); margin-bottom: 0.5rem;">⚙️ Gang Script</h3>
+                                <p>Custom in-house developed gang script with unique features</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tips-box">
+                        <h3>💡 Gang Management Tips</h3>
+                        <ul>
+                            <li>Choose gang members wisely - they represent your gang</li>
+                            <li>Set up clear rules and expectations for members</li>
+                            <li>Participate in roleplay and server events to level up faster</li>
+                            <li>Manage gang funds responsibly for investments and perks</li>
+                            <li>Communication with your members is key to success</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Weapons Guide Page -->
+            <div id="weaponsguide-page" class="page">
+                <div class="content-container">
+                    <h1>🔫 Weapons Guide</h1>
+                    <p>Learn about all weapons, ammunition types, and dealers available on LYX Studios.</p>
+                    
+                    <div class="guide-section">
+                        <h2>🔌 Bullet Types & Ammunition</h2>
+                        <p>Different weapons use different ammunition types. Here's a breakdown:</p>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0;">
+                            <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                                <h3 style="color: var(--primary-color);">9mm / .357</h3>
+                                <p>Small arms ammunition for pistols and revolvers</p>
+                            </div>
+                            <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                                <h3 style="color: var(--primary-color);">12 Gauge</h3>
+                                <p>Shotgun ammunition for close-range heavy damage</p>
+                            </div>
+                            <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                                <h3 style="color: var(--primary-color);">9mm SMG</h3>
+                                <p>Submachine gun ammunition for rapid fire</p>
+                            </div>
+                            <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                                <h3 style="color: var(--primary-color);">5.56 / 7.62</h3>
+                                <p>Assault rifle ammunition for medium-long range</p>
+                            </div>
+                            <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                                <h3 style="color: var(--primary-color);">5.56 LMG</h3>
+                                <p>Light machine gun ammunition for sustained fire</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="guide-section">
+                        <h2>🛍️ Weapon Dealers</h2>
+                        <p>LYX has several weapon dealers with different selections and price ranges:</p>
+
+                        <div style="margin: 2rem 0;">
+                            <div style="background: var(--card-bg); border-left: 4px solid var(--primary-color); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem;">
+                                <h3 style="color: var(--primary-color); margin-top: 0;">🔪 Small Melee Store</h3>
+                                <p><strong>Offerings:</strong> Small handheld weapons</p>
+                                <p><strong>Price Range:</strong> £2,000 - £10,000</p>
+                                <p style="color: var(--text-secondary); font-size: 0.9rem;">Perfect for beginners looking for basic melee weapons</p>
+                            </div>
+
+                            <div style="background: var(--card-bg); border-left: 4px solid var(--primary-color); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem;">
+                                <h3 style="color: var(--primary-color); margin-top: 0;">🔫 Small Arms Dealer</h3>
+                                <p><strong>Offerings:</strong> Pistols, SMGs, 25% armor</p>
+                                <p><strong>Price Range:</strong> £50,000 - £400,000</p>
+                                <p style="color: var(--text-secondary); font-size: 0.9rem;">Good starting point for players upgrading from melee weapons</p>
+                            </div>
+
+                            <div style="background: var(--card-bg); border-left: 4px solid var(--primary-color); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem;">
+                                <h3 style="color: var(--primary-color); margin-top: 0;">⚔️ Militia</h3>
+                                <p><strong>Offerings:</strong> Large arms, full armor</p>
+                                <p><strong>Price Range:</strong> £100,000 - £1,500,000</p>
+                                <p style="color: var(--text-secondary); font-size: 0.9rem;">Professional grade weapons and full equipment</p>
+                            </div>
+
+                            <div style="background: var(--card-bg); border-left: 4px solid var(--primary-color); border-radius: 8px; padding: 1.5rem;">
+                                <h3 style="color: var(--primary-color); margin-top: 0;">🖤 Blackmarket</h3>
+                                <p><strong>Offerings:</strong> Large arms, full armor, special equipment for heists</p>
+                                <p><strong>Price Range:</strong> £100,000 - £2,000,000</p>
+                                <p style="color: var(--text-secondary); font-size: 0.9rem;">Premium dealer with exclusive heist equipment and rare weapons</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tips-box">
+                        <h3>💡 Weapon Selection Tips</h3>
+                        <ul>
+                            <li>Match ammunition type to your playstyle and budget</li>
+                            <li>Higher-tier dealers offer better weapons but cost significantly more</li>
+                            <li>Armor protections vary by dealer - plan accordingly for combat</li>
+                            <li>Special heist equipment from Blackmarket opens up new opportunities</li>
+                            <li>Practice with beginner weapons before investing in expensive gear</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vehicles Guide Page -->
+            <div id="vehiclesguide-page" class="page">
+                <div class="content-container">
+                    <h1>🚗 Vehicles Guide</h1>
+                    <p>Explore all vehicle options available on LYX Studios and learn how to manage them.</p>
+                    
+                    <div class="guide-section">
+                        <h2>🏎️ Vehicle Types</h2>
+                        <p>LYX offers several vehicle options to suit different playstyles and budgets:</p>
+
+                        <div style="margin: 2rem 0;">
+                            <div style="background: var(--card-bg); border-left: 4px solid var(--primary-color); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem;">
+                                <h3 style="color: var(--primary-color); margin-top: 0;">🚙 Simeons</h3>
+                                <p>The standard vehicle dealer offering basic cars and vans for everyone.</p>
+                                <p style="color: var(--text-secondary); font-size: 0.9rem;">Great for new players starting out</p>
+                            </div>
+
+                            <div style="background: var(--card-bg); border-left: 4px solid var(--primary-color); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem;">
+                                <h3 style="color: var(--primary-color); margin-top: 0;">⭐ VIP Cars</h3>
+                                <p>Select from a group of exclusive cars that are predetermined when you donate to LYX Studios.</p>
+                                <p style="color: var(--text-secondary); font-size: 0.9rem;">Support the server and get access to premium vehicles</p>
+                            </div>
+
+                            <div style="background: var(--card-bg); border-left: 4px solid var(--primary-color); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem;">
+                                <h3 style="color: var(--primary-color); margin-top: 0;">🔧 Custom Cars</h3>
+                                <p>Similar to VIP cars but usually slightly quicker or with more boot storage for your needs.</p>
+                                <p style="color: var(--text-secondary); font-size: 0.9rem;">Enhanced performance and functionality</p>
+                            </div>
+
+                            <div style="background: var(--card-bg); border-left: 4px solid var(--primary-color); border-radius: 8px; padding: 1.5rem;">
+                                <h3 style="color: var(--primary-color); margin-top: 0;">🔐 LYX Secure Cars</h3>
+                                <p>Unique vehicles that you can import by donating to LYX. These are custom vehicles that you bring in yourself.</p>
+                                <p style="color: var(--accent); font-weight: bold; margin-top: 0.5rem;">How to Get Secure Cars:</p>
+                                <ul style="margin-top: 0.5rem;">
+                                    <li>Find a vehicle model on <a href="https://www.gta5-mods.com" target="_blank" style="color: var(--primary-color);">gta5-mods.com</a></li>
+                                    <li>Or get your own custom model made</li>
+                                    <li>Ask in the Discord for links and recommendations from the community</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="guide-section">
+                        <h2>🏠 Garage Guide</h2>
+                        <p>LYX garages come with a bunch of features to manage your vehicles:</p>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0;">
+                            <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                                <h3 style="color: var(--primary-color); margin-top: 0;">➕ Spawn Car</h3>
+                                <p>Retrieve your vehicle from storage</p>
+                            </div>
+                            <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                                <h3 style="color: var(--primary-color); margin-top: 0;">🗑️ Delete Car</h3>
+                                <p>Remove a vehicle from your garage permanently</p>
+                            </div>
+                            <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                                <h3 style="color: var(--primary-color); margin-top: 0;">💰 Sell Car</h3>
+                                <p>Sell your vehicle for cash</p>
+                            </div>
+                            <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                                <h3 style="color: var(--primary-color); margin-top: 0;">🔑 Rent Car</h3>
+                                <p>Rent a vehicle temporarily to other players</p>
+                            </div>
+                            <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                                <h3 style="color: var(--primary-color); margin-top: 0;">📊 Finance Car To Player</h3>
+                                <p>Set up a payment plan for another player to buy your vehicle</p>
+                            </div>
+                            <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                                <h3 style="color: var(--primary-color); margin-top: 0;">📜 Vehicle History</h3>
+                                <p>View the complete history of your vehicle</p>
+                            </div>
+                            <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                                <h3 style="color: var(--primary-color); margin-top: 0;">📈 Average Sales Price</h3>
+                                <p>Check current market value of your vehicle</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="guide-section">
+                        <h2>🆘 Need Help?</h2>
+                        <p>If you need help with garage features or vehicle management:</p>
+                        <ul>
+                            <li>Ask in the Discord server - the community is helpful</li>
+                            <li>Ask in-game for assistance from experienced players</li>
+                            <li>Create a Discord ticket for staff support</li>
+                        </ul>
+                    </div>
+
+                    <div class="tips-box">
+                        <h3>💡 Vehicle Management Tips</h3>
+                        <ul>
+                            <li>Keep vehicles you actually use - storage space may be limited</li>
+                            <li>Check average sales prices before selling</li>
+                            <li>Vehicle history is useful for tracking maintenance and incidents</li>
+                            <li>Consider financing cars to other players as a side income</li>
+                            <li>Explore custom vehicles on gta5-mods.com for unique options</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Basic Controls Page -->
+            <div id="controlsguide-page" class="page">
+                <div class="content-container">
+                    <h1>⌨️ Basic Controls</h1>
+                    <p>Essential keybinds and controls for gameplay.</p>
+                    <p style="color: var(--text-secondary);">Master the controls to play efficiently and smoothly.</p>
+                </div>
+            </div>
+
+            <!-- Marketplace Guide Page -->
+            <div id="marketplaceguide-page" class="page">
+                <div class="content-container">
+                    <h1>🏪 Marketplace</h1>
+                    <p>Learn how to buy and sell items on the LYX Studios player-driven marketplace.</p>
+                    
+                    <div class="guide-section">
+                        <h2>📍 Finding the Marketplace</h2>
+                        <p>Head to the Marketplace location on your map. Once opened, you'll have access to all marketplace features.</p>
+                        <p style="color: var(--text-secondary);">The marketplace is your hub for buying and selling items with other players.</p>
+                    </div>
+
+                    <div class="guide-section">
+                        <h2>📤 Selling Items</h2>
+                        <p>Sell your items on a store where any other players can buy from you without you having to deal with time wasters. LYX Marketplace handles all that for you!</p>
+                        
+                        <div style="background: rgba(204, 0, 0, 0.1); border: 1px solid var(--primary-color); border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0;">
+                            <h3 style="color: var(--primary-color);">How to List an Item:</h3>
+                            <ol style="margin-top: 1rem;">
+                                <li><strong>Set a price</strong> - Decide how much you want to sell it for</li>
+                                <li><strong>Choose the item</strong> - Select which item from your inventory to sell</li>
+                                <li><strong>List it</strong> - Confirm and your item goes on the marketplace</li>
+                                <li><strong>Wait for buyers</strong> - Other players can now purchase your item anytime</li>
+                            </ol>
+                            <p style="color: var(--accent); margin-top: 1rem;"><strong>That's it! No need to wait around for a buyer.</strong></p>
+                        </div>
+
+                        <div class="tips-box" style="background: var(--card-bg); border-left: 4px solid var(--primary-color);">
+                            <h3 style="color: var(--primary-color);">💡 Selling Tips</h3>
+                            <ul>
+                                <li>Set competitive prices to sell faster</li>
+                                <li>Check what similar items are selling for</li>
+                                <li>List popular items during peak hours</li>
+                                <li>You can list multiple of the same item</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="guide-section">
+                        <h2>📥 Buying Items</h2>
+                        <p>Find and purchase items from other players easily:</p>
+                        
+                        <div style="background: rgba(204, 0, 0, 0.1); border: 1px solid var(--primary-color); border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0;">
+                            <h3 style="color: var(--primary-color);">How to Buy an Item:</h3>
+                            <ol style="margin-top: 1rem;">
+                                <li><strong>Search</strong> - Look for the item you want to buy</li>
+                                <li><strong>Check the price</strong> - If the price seems right, proceed</li>
+                                <li><strong>Click buy</strong> - Confirm your purchase</li>
+                                <li><strong>Automatic delivery</strong> - The item automatically goes into your inventory</li>
+                            </ol>
+                            <p style="color: var(--accent); margin-top: 1rem;"><strong>No middleman needed - instant transactions!</strong></p>
+                        </div>
+
+                        <div class="tips-box" style="background: var(--card-bg); border-left: 4px solid var(--primary-color);">
+                            <h3 style="color: var(--primary-color);">💡 Buying Tips</h3>
+                            <ul>
+                                <li>Compare prices from multiple sellers</li>
+                                <li>Look for bulk deals if buying multiple items</li>
+                                <li>Popular items sell out quickly - act fast</li>
+                                <li>Check the marketplace regularly for deals</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="guide-section">
+                        <h2>📊 Marketplace Benefits</h2>
+                        <ul>
+                            <li>✅ <strong>No middleman</strong> - Direct transactions between players</li>
+                            <li>✅ <strong>Automatic delivery</strong> - Items go straight to inventory</li>
+                            <li>✅ <strong>24/7 availability</strong> - Sellers don't need to be online</li>
+                            <li>✅ <strong>Fair pricing</strong> - Set your own prices competitively</li>
+                            <li>✅ <strong>Convenient</strong> - No deal making or time wasters</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Zones Guide Page -->
+            <div id="zonesguide-page" class="page">
+                <div class="content-container">
+                    <h1>🗺️ Zones Guide</h1>
+                    <p>LYX Studios has 3 distinct zones with different rules and mechanics. Know the differences before you venture out!</p>
+                    
+                    <div class="guide-section">
+                        <h2>🛡️ Safezone</h2>
+                        <div style="background: rgba(0, 150, 0, 0.1); border-left: 4px solid #00d100; border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0;">
+                            <h3 style="color: #00d100; margin-top: 0;">Zone Rules</h3>
+                            <ul>
+                                <li><strong>✅ Cannot be killed</strong> - You are protected from PvP damage</li>
+                                <li><strong>✅ Weapons are restricted</strong> - Cannot use weapons here</li>
+                                <li><strong>❌ Cannot sell weapons</strong> - No weapon trading allowed</li>
+                            </ul>
+                            <p style="color: var(--text-secondary); margin-top: 1rem;"><strong>Purpose:</strong> Safe area for banking, shopping, and general activities without combat risk.</p>
+                        </div>
+                    </div>
+
+                    <div class="guide-section">
+                        <h2>🔴 Redzone</h2>
+                        <div style="background: rgba(204, 0, 0, 0.1); border-left: 4px solid var(--primary-color); border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0;">
+                            <h3 style="color: var(--primary-color); margin-top: 0;">Zone Rules</h3>
+                            <ul>
+                                <li><strong>⚠️ Kill on sight (KOS)</strong> - Any player can attack you</li>
+                                <li><strong>⚠️ No protection</strong> - You have no immunity</li>
+                                <li><strong>⚠️ High risk zone</strong> - Expect combat at any time</li>
+                            </ul>
+                            <p style="color: var(--text-secondary); margin-top: 1rem;"><strong>Purpose:</strong> PvP-enabled zone for combat and high-risk activities. Higher rewards come with higher danger.</p>
+                        </div>
+                    </div>
+
+                    <div class="guide-section">
+                        <h2>☢️ Radiation Zone</h2>
+                        <div style="background: rgba(200, 150, 0, 0.1); border-left: 4px solid #ffaa00; border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0;">
+                            <h3 style="color: #ffaa00; margin-top: 0;">Zone Rules</h3>
+                            <ul>
+                                <li><strong>⚠️ Kill on sight (KOS)</strong> - Any player can attack you</li>
+                                <li><strong>☢️ Radiation damage</strong> - Takes damage every few seconds</li>
+                                <li><strong>🛡️ Radiation suit protection</strong> - Wearing a radiation suit prevents damage</li>
+                            </ul>
+                            <p style="color: var(--text-secondary); margin-top: 1rem;"><strong>Important:</strong> This zone combines PvP danger with environmental hazards. Always equip a radiation suit before entering!</p>
+                        </div>
+                    </div>
+
+                    <div class="guide-section">
+                        <h2>📊 Zone Comparison</h2>
+                        <div style="overflow-x: auto; margin: 1.5rem 0;">
+                            <table style="width: 100%; border-collapse: collapse;">
+                                <thead>
+                                    <tr style="background: var(--card-bg); border-bottom: 2px solid var(--primary-color);">
+                                        <th style="padding: 1rem; text-align: left; color: var(--primary-color);">Zone</th>
+                                        <th style="padding: 1rem; text-align: left; color: var(--primary-color);">PvP</th>
+                                        <th style="padding: 1rem; text-align: left; color: var(--primary-color);">Damage</th>
+                                        <th style="padding: 1rem; text-align: left; color: var(--primary-color);">Risk Level</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="border-bottom: 1px solid var(--border-color);">
+                                        <td style="padding: 1rem;">🛡️ Safezone</td>
+                                        <td style="padding: 1rem;">No</td>
+                                        <td style="padding: 1rem;">None</td>
+                                        <td style="padding: 1rem; color: #00d100;">Low</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid var(--border-color);">
+                                        <td style="padding: 1rem;">🔴 Redzone</td>
+                                        <td style="padding: 1rem;">Yes (KOS)</td>
+                                        <td style="padding: 1rem;">Player combat</td>
+                                        <td style="padding: 1rem; color: var(--primary-color);">High</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 1rem;">☢️ Radiation Zone</td>
+                                        <td style="padding: 1rem;">Yes (KOS)</td>
+                                        <td style="padding: 1rem;">Combat + Radiation</td>
+                                        <td style="padding: 1rem; color: #ffaa00;">Extreme</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="tips-box">
+                        <h3>💡 Zone Navigation Tips</h3>
+                        <ul>
+                            <li>Use Safezone for banking, shopping, and safe activities</li>
+                            <li>Always travel with allies in Redzone</li>
+                            <li>Never enter Radiation Zone without a radiation suit</li>
+                            <li>Higher risk zones offer better loot and money opportunities</li>
+                            <li>Know the zone boundaries and plan your route carefully</li>
+                            <li>Check your map for zone markers before exploring</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Jobs Guide Page -->
+            <div id="jobsguide-page" class="page">
+                <div class="content-container">
+                    <h1>💼 Jobs Guide</h1>
+                    <p>LYX Studios features multiple jobs to choose from. Here are the main ones to get you started earning money and XP!</p>
+                    
+                    <div class="guide-section">
+                        <h2>🚚 Trucking</h2>
+                        <div style="background: var(--card-bg); border-left: 4px solid var(--primary-color); border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0;">
+                            <h3 style="color: var(--primary-color); margin-top: 0;">Job Description</h3>
+                            <p>Deliver items using a truck to different locations across the map.</p>
+                            
+                            <h3 style="color: var(--primary-color); margin-top: 1.5rem;">How It Works</h3>
+                            <ul>
+                                <li>Pick up cargo from the depot</li>
+                                <li>Drive your truck to designated delivery locations</li>
+                                <li>Drop off packages at each stop</li>
+                                <li>Complete deliveries to earn cash and XP</li>
+                            </ul>
+
+                            <h3 style="color: var(--primary-color); margin-top: 1.5rem;">Earnings & Progression</h3>
+                            <ul>
+                                <li><strong>Each delivery</strong> awards cash and XP points</li>
+                                <li><strong>Level up</strong> by earning XP in your trucking career</li>
+                                <li><strong>Higher levels = Higher pay</strong> - More XP leads to better compensation</li>
+                            </ul>
+
+                            <div style="background: rgba(204, 0, 0, 0.1); border: 1px solid var(--primary-color); border-radius: 6px; padding: 1rem; margin-top: 1rem;">
+                                <p style="color: var(--accent);"><strong>💡 Tip:</strong> Focus on consistent deliveries to level up quickly and unlock higher pay rates!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="guide-section">
+                        <h2>🗑️ Binman</h2>
+                        <div style="background: var(--card-bg); border-left: 4px solid var(--primary-color); border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0;">
+                            <h3 style="color: var(--primary-color); margin-top: 0;">Job Description</h3>
+                            <p>Collect trash from designated routes around the city. Quick, easy, and extremely profitable!</p>
+                            
+                            <h3 style="color: var(--primary-color); margin-top: 1.5rem;">How It Works</h3>
+                            <ul>
+                                <li>Get assigned a collection route</li>
+                                <li>Visit each trash location on your route</li>
+                                <li>Collect bins and load them onto your truck</li>
+                                <li>Return to the depot and unload</li>
+                                <li>Repeat for more income</li>
+                            </ul>
+
+                            <h3 style="color: var(--primary-color); margin-top: 1.5rem;">Why Choose Binman?</h3>
+                            <ul>
+                                <li><strong>✅ Quick routes</strong> - Finish jobs fast</li>
+                                <li><strong>✅ Easy gameplay</strong> - Simple mechanics, no complicated tasks</li>
+                                <li><strong>✅ Excellent pay</strong> - One of the highest-paying starter jobs</li>
+                                <li><strong>✅ Reliable income</strong> - Consistent earnings per route</li>
+                            </ul>
+
+                            <div style="background: rgba(204, 0, 0, 0.1); border: 1px solid var(--primary-color); border-radius: 6px; padding: 1rem; margin-top: 1rem;">
+                                <p style="color: var(--accent);"><strong>💡 Tip:</strong> Binman is perfect for new players! Easy money with minimal effort - great for building up initial capital!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="guide-section">
+                        <h2>📊 Job Comparison</h2>
+                        <div style="overflow-x: auto; margin: 1.5rem 0;">
+                            <table style="width: 100%; border-collapse: collapse;">
+                                <thead>
+                                    <tr style="background: var(--card-bg); border-bottom: 2px solid var(--primary-color);">
+                                        <th style="padding: 1rem; text-align: left; color: var(--primary-color);">Job</th>
+                                        <th style="padding: 1rem; text-align: left; color: var(--primary-color);">Difficulty</th>
+                                        <th style="padding: 1rem; text-align: left; color: var(--primary-color);">Pay Rate</th>
+                                        <th style="padding: 1rem; text-align: left; color: var(--primary-color);">Speed</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="border-bottom: 1px solid var(--border-color);">
+                                        <td style="padding: 1rem;">🚚 Trucking</td>
+                                        <td style="padding: 1rem;">Medium</td>
+                                        <td style="padding: 1rem;">Good (Higher with XP)</td>
+                                        <td style="padding: 1rem;">Medium</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 1rem;">🗑️ Binman</td>
+                                        <td style="padding: 1rem;">Easy</td>
+                                        <td style="padding: 1rem;">Excellent</td>
+                                        <td style="padding: 1rem;">Fast</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="tips-box">
+                        <h3>💡 Job Tips</h3>
+                        <ul>
+                            <li>New players should start with Binman for quick profits</li>
+                            <li>Trucking offers long-term progression through XP leveling</li>
+                            <li>Both jobs are great for earning initial capital</li>
+                            <li>Switch between jobs to avoid repetition</li>
+                            <li>As you earn more, explore other advanced job opportunities</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Licenses Guide Page -->
+            <div id="licensesguide-page" class="page">
+                <div class="content-container">
+                    <h1>📜 Licenses Guide</h1>
+                    <p>LYX Studios features a comprehensive licensing system. Purchase licenses to unlock new opportunities, jobs, and businesses!</p>
+                    
+                    <div class="guide-section">
+                        <h2>💰 Money/Jobs Licenses</h2>
+                        <p>These licenses unlock various money-making opportunities and jobs on the server. Each higher tier offers greater profits but costs significantly more.</p>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0;">
+                            <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                                <h3 style="color: var(--primary-color); margin-top: 0;">⛏️ Tin License</h3>
+                                <p style="font-size: 1.3rem; color: var(--accent); font-weight: bold;">£10,000</p>
+                                <p style="color: var(--text-secondary);">Entry-level mining license</p>
+                            </div>
+
+                            <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                                <h3 style="color: var(--primary-color); margin-top: 0;">🪨 Granite License</h3>
+                                <p style="font-size: 1.3rem; color: var(--accent); font-weight: bold;">£50,000</p>
+                                <p style="color: var(--text-secondary);">Mid-tier mining license</p>
+                            </div>
+
+                            <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                                <h3 style="color: var(--primary-color); margin-top: 0;">💊 Ketamine License</h3>
+                                <p style="font-size: 1.3rem; color: var(--accent); font-weight: bold;">£150,000</p>
+                                <p style="color: var(--text-secondary);">Drug manufacturing license</p>
+                            </div>
+
+                            <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                                <h3 style="color: var(--primary-color); margin-top: 0;">💀 Fentanyl License</h3>
+                                <p style="font-size: 1.3rem; color: var(--accent); font-weight: bold;">£500,000</p>
+                                <p style="color: var(--text-secondary);">Advanced drug license</p>
+                            </div>
+
+                            <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                                <h3 style="color: var(--primary-color); margin-top: 0;">💎 Platinum License</h3>
+                                <p style="font-size: 1.3rem; color: var(--accent); font-weight: bold;">£4,000,000</p>
+                                <p style="color: var(--text-secondary);">Premium mining license</p>
+                            </div>
+
+                            <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                                <h3 style="color: var(--primary-color); margin-top: 0;">💙 Sapphire License</h3>
+                                <p style="font-size: 1.3rem; color: var(--accent); font-weight: bold;">£10,000,000</p>
+                                <p style="color: var(--text-secondary);">Gemstone license</p>
+                            </div>
+
+                            <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                                <h3 style="color: var(--primary-color); margin-top: 0;">🌈 Ecstasy License</h3>
+                                <p style="font-size: 1.3rem; color: var(--accent); font-weight: bold;">£20,000,000</p>
+                                <p style="color: var(--text-secondary);">Drug distribution license</p>
+                            </div>
+
+                            <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                                <h3 style="color: var(--primary-color); margin-top: 0;">🔮 DMT License</h3>
+                                <p style="font-size: 1.3rem; color: var(--accent); font-weight: bold;">£50,000,000</p>
+                                <p style="color: var(--text-secondary);">Elite drug manufacturing license</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="guide-section">
+                        <h2>🔓 Other Licenses</h2>
+                        <p>Specialized licenses that unlock unique opportunities and business ventures:</p>
+
+                        <div style="margin: 1.5rem 0;">
+                            <div style="background: var(--card-bg); border-left: 4px solid var(--primary-color); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem;">
+                                <div style="display: flex; justify-content: space-between; align-items: start;">
+                                    <div>
+                                        <h3 style="color: var(--primary-color); margin-top: 0;">⚔️ Militia License</h3>
+                                        <p>Access to military-grade weapons and equipment from the Militia Gun Store.</p>
+                                    </div>
+                                    <p style="font-size: 1.3rem; color: var(--accent); font-weight: bold; white-space: nowrap; margin-left: 1rem;">£30,000,000</p>
+                                </div>
+                            </div>
+
+                            <div style="background: var(--card-bg); border-left: 4px solid var(--primary-color); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem;">
+                                <div style="display: flex; justify-content: space-between; align-items: start;">
+                                    <div>
+                                        <h3 style="color: var(--primary-color); margin-top: 0;">🎖️ Advanced Militia License</h3>
+                                        <p>Unlock advanced military weapons and rare equipment not available to standard militia members.</p>
+                                    </div>
+                                    <p style="font-size: 1.3rem; color: var(--accent); font-weight: bold; white-space: nowrap; margin-left: 1rem;">£15,000,000</p>
+                                </div>
+                            </div>
+
+                            <div style="background: var(--card-bg); border-left: 4px solid var(--primary-color); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem;">
+                                <div style="display: flex; justify-content: space-between; align-items: start;">
+                                    <div>
+                                        <h3 style="color: var(--primary-color); margin-top: 0;">🔥 Gang License</h3>
+                                        <p>Create and manage your own gang. Unlock gang territories, exclusive vehicles, and custom scripts.</p>
+                                    </div>
+                                    <p style="font-size: 1.3rem; color: var(--accent); font-weight: bold; white-space: nowrap; margin-left: 1rem;">£500,000</p>
+                                </div>
+                            </div>
+
+                            <div style="background: var(--card-bg); border-left: 4px solid var(--primary-color); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem;">
+                                <div style="display: flex; justify-content: space-between; align-items: start;">
+                                    <div>
+                                        <h3 style="color: var(--primary-color); margin-top: 0;">👮 Police Long Range Blips License</h3>
+                                        <p>For law enforcement - gain access to long-range tracking and advanced police features.</p>
+                                    </div>
+                                    <p style="font-size: 1.3rem; color: var(--accent); font-weight: bold; white-space: nowrap; margin-left: 1rem;">£5,000,000</p>
+                                </div>
+                            </div>
+
+                            <div style="background: var(--card-bg); border-left: 4px solid var(--primary-color); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem;">
+                                <div style="display: flex; justify-content: space-between; align-items: start;">
+                                    <div>
+                                        <h3 style="color: var(--primary-color); margin-top: 0;">💳 Loansharking License</h3>
+                                        <p>Create loans for players and set your own interest rates and payback times. Build a profitable lending empire and generate passive income from player repayments.</p>
+                                    </div>
+                                    <p style="font-size: 1.3rem; color: var(--accent); font-weight: bold; white-space: nowrap; margin-left: 1rem;">£5,000,000</p>
+                                </div>
+                            </div>
+
+                            <div style="background: var(--card-bg); border-left: 4px solid var(--primary-color); border-radius: 8px; padding: 1.5rem;">
+                                <div style="display: flex; justify-content: space-between; align-items: start;">
+                                    <div>
+                                        <h3 style="color: var(--primary-color); margin-top: 0;">🏢 Business License</h3>
+                                        <p>Run your own custom rental business! Hire employees who can manage their own vans/cars and rent them out in bulk. Create a rental empire and earn passive income from your team's work.</p>
+                                    </div>
+                                    <p style="font-size: 1.3rem; color: var(--accent); font-weight: bold; white-space: nowrap; margin-left: 1rem;">£100,000,000</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tips-box">
+                        <h3>💡 License Tips</h3>
+                        <ul>
+                            <li>Start with cheaper licenses like Tin to build initial capital</li>
+                            <li>Gang License is cheaper and unlocks powerful features early</li>
+                            <li>Money/Jobs licenses unlock increasingly profitable opportunities</li>
+                            <li>Business License is the ultimate investment for passive income</li>
+                            <li>Save up and plan which licenses fit your playstyle</li>
+                            <li>Some licenses work better with specific jobs or gang activities</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loan Sharking Guide Page -->
+            <div id="loansharking-page" class="page">
+                <div class="content-container">
+                    <h1>💳 Loan Sharking Guide</h1>
+                    <p>Learn how to take loans or become a loansharker and profit from lending money to other players.</p>
+                    
+                    <div class="guide-section">
+                        <h2>🏦 Taking Out a Loan</h2>
+                        <p>If you need quick cash, you can take out a loan from any loansharker on the server.</p>
+                        
+                        <div style="background: rgba(204, 0, 0, 0.1); border: 1px solid var(--primary-color); border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0;">
+                            <h3 style="color: var(--primary-color); margin-top: 0;">How to Request a Loan</h3>
+                            <ol style="margin-top: 1rem;">
+                                <li>Type the command: <code style="background: var(--darker-bg); padding: 0.3rem 0.6rem; border-radius: 4px; color: var(--accent);">/ls</code></li>
+                                <li>Set the loan amount you need</li>
+                                <li>Propose an interest rate with the loansharker</li>
+                                <li>Agree on payback times and payment schedule</li>
+                                <li>Once accepted, you receive the funds</li>
+                            </ol>
+                        </div>
+
+                        <div class="tips-box" style="background: var(--card-bg); border-left: 4px solid var(--primary-color);">
+                            <h3 style="color: var(--primary-color);">💡 Loan Tips</h3>
+                            <ul>
+                                <li>Lower interest rates are more attractive to loansharkers</li>
+                                <li>Shorter payback periods mean higher interest rates</li>
+                                <li>Build a reputation for paying on time to get better loan terms</li>
+                                <li>Plan how you'll earn the money to pay back the loan</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="guide-section">
+                        <h2>🎩 Becoming a Loansharker</h2>
+                        <p>Purchase the Loansharking License for £5,000,000 to become a professional loansharker and profit from lending money.</p>
+                        
+                        <div style="background: rgba(204, 0, 0, 0.1); border: 1px solid var(--primary-color); border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0;">
+                            <h3 style="color: var(--primary-color); margin-top: 0;">Loansharker Commands</h3>
+                            <p style="margin-bottom: 1rem;">Once you own the Loansharking License, use this command:</p>
+                            <p style="background: var(--darker-bg); padding: 1rem; border-radius: 4px; border-left: 3px solid var(--primary-color);">
+                                <code style="color: var(--accent); font-weight: bold;">/lsm</code> - Opens your loansharking management menu
+                            </p>
+                        </div>
+
+                        <div style="margin: 1.5rem 0;">
+                            <h3 style="color: var(--primary-color);">Loansharker Management Features</h3>
+                            <div style="display: grid; grid-template-columns: 1fr; gap: 1rem; margin-top: 1rem;">
+                                <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                                    <h4 style="color: var(--primary-color); margin-top: 0;">✅ Accept/Deny Loans</h4>
+                                    <p>Review loan requests from players and approve or reject them based on terms you're comfortable with.</p>
+                                </div>
+                                <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                                    <h4 style="color: var(--primary-color); margin-top: 0;">📊 Manage Loans</h4>
+                                    <p>Track all active loans, monitor payment schedules, and manage your lending portfolio.</p>
+                                </div>
+                                <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                                    <h4 style="color: var(--primary-color); margin-top: 0;">⚠️ Track Missed Payments</h4>
+                                    <p>Monitor which players have missed their loan payments and take appropriate action.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="background: rgba(204, 0, 0, 0.15); border: 2px solid var(--primary-color); border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0;">
+                            <h3 style="color: var(--primary-color); margin-top: 0;">⚖️ Missed Payment Policy</h3>
+                            <p><strong>After 2 missed payments:</strong></p>
+                            <ul style="margin: 1rem 0;">
+                                <li>The player will be <strong>punished</strong> by the server system</li>
+                                <li>You (the loansharker) will receive <strong>80% of the loan amount back</strong></li>
+                                <li>The remaining 20% is considered lost debt</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="guide-section">
+                        <h2>💰 Loansharking Tips & Strategy</h2>
+                        <div class="tips-box">
+                            <h3>📈 Tips for Successful Loansharking</h3>
+                            <ul>
+                                <li><strong>Set reasonable interest rates</strong> - Attractive rates get more loan requests</li>
+                                <li><strong>Verify borrower reputation</strong> - Lend to players with payment history</li>
+                                <li><strong>Flexible terms</strong> - Offer different payment plans to suit borrowers</li>
+                                <li><strong>Track payments closely</strong> - Use /lsm to monitor all loans actively</li>
+                                <li><strong>Risk management</strong> - Balance high-interest loans with safer bets</li>
+                                <li><strong>Build your empire</strong> - Reinvest profits into more loans for exponential growth</li>
+                                <li><strong>Player relationships</strong> - Regular borrowers lead to consistent income</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="guide-section">
+                        <h2>📊 Loansharking vs Other Businesses</h2>
+                        <p>Loansharking is a passive income business that scales with your capital and borrower network.</p>
+                        <ul>
+                            <li>✅ <strong>Passive income</strong> - Players pay you regularly</li>
+                            <li>✅ <strong>High profit margins</strong> - Interest rates can be substantial</li>
+                            <li>✅ <strong>Scalable</strong> - More capital = more simultaneous loans</li>
+                            <li>⚠️ <strong>Risk management needed</strong> - Some borrowers may default</li>
+                            <li>⚠️ <strong>Requires capital</strong> - Need money to lend out</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Server Events Guide Page -->
+            <div id="eventsguide-page" class="page">
+                <div class="content-container">
+                    <h1>🎉 Server Events Guide</h1>
+                    <p>LYX Studios features multiple exciting server events throughout the day. These events offer great opportunities for loot, cash, and PvP action. Here's what to expect:</p>
+                    
+                    <div class="guide-section">
+                        <h2>📦 Care Packages</h2>
+                        <div style="background: var(--card-bg); border-left: 4px solid var(--primary-color); border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0;">
+                            <h3 style="color: var(--primary-color); margin-top: 0;">What Happens</h3>
+                            <p>Random drops of cash and weapons fall from the sky at various locations across the map.</p>
+                            
+                            <h3 style="color: var(--primary-color); margin-top: 1rem;">⚠️ Important Details</h3>
+                            <ul>
+                                <li>A <strong>redzone is set around each care package</strong></li>
+                                <li>Players can engage in PvP around the care package</li>
+                                <li><strong>Be prepared to fight</strong> for the loot</li>
+                                <li>Early arrivals get first pick of the best items</li>
+                                <li>High risk, high reward scenario</li>
+                            </ul>
+
+                            <div style="background: rgba(204, 0, 0, 0.1); border: 1px solid var(--primary-color); border-radius: 6px; padding: 1rem; margin-top: 1rem;">
+                                <p style="color: var(--accent);"><strong>💡 Tip:</strong> Travel with allies for better chances of claiming care package loot!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="guide-section">
+                        <h2>🚢 Cargo</h2>
+                        <div style="background: var(--card-bg); border-left: 4px solid var(--primary-color); border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0;">
+                            <h3 style="color: var(--primary-color); margin-top: 0;">What Happens</h3>
+                            <p>A cargo ship appears offshore that's loaded with valuable loot for players to claim.</p>
+                            
+                            <h3 style="color: var(--primary-color); margin-top: 1rem;">🎯 How to Participate</h3>
+                            <ul>
+                                <li>Travel to the cargo ship location</li>
+                                <li>Board the ship and collect loot</li>
+                                <li>Compete with other players for the best items</li>
+                                <li>Manage your inventory - loot is valuable but heavy</li>
+                            </ul>
+
+                            <div style="background: rgba(204, 0, 0, 0.1); border: 1px solid var(--primary-color); border-radius: 6px; padding: 1rem; margin-top: 1rem;">
+                                <p style="color: var(--accent);"><strong>💡 Tip:</strong> Bring a vehicle nearby to quickly escape after collecting loot!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="guide-section">
+                        <h2>⚙️ Oil Drop</h2>
+                        <div style="background: var(--card-bg); border-left: 4px solid var(--primary-color); border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0;">
+                            <h3 style="color: var(--primary-color); margin-top: 0;">What Happens</h3>
+                            <p>An oil rig spawns at sea, loaded with valuable loot but guarded by NPC rig staff.</p>
+                            
+                            <h3 style="color: var(--primary-color); margin-top: 1rem;">⚔️ Objectives</h3>
+                            <ul>
+                                <li>Travel to the oil rig location</li>
+                                <li><strong>Fight and defeat the rig staff</strong> NPCs</li>
+                                <li>Collect the loot from the rig</li>
+                                <li>Escape before other players arrive to claim your prize</li>
+                            </ul>
+
+                            <h3 style="color: var(--primary-color); margin-top: 1rem;">⚠️ Challenges</h3>
+                            <ul>
+                                <li>Armed NPC guards present a combat threat</li>
+                                <li>Other players may attempt to steal your loot</li>
+                                <li>Limited escape points from the rig</li>
+                            </ul>
+
+                            <div style="background: rgba(204, 0, 0, 0.1); border: 1px solid var(--primary-color); border-radius: 6px; padding: 1rem; margin-top: 1rem;">
+                                <p style="color: var(--accent);"><strong>💡 Tip:</strong> Bring good weapons and armor to take down the rig staff efficiently!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="guide-section">
+                        <h2>🚛 Van Raid</h2>
+                        <div style="background: var(--card-bg); border-left: 4px solid var(--primary-color); border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0;">
+                            <h3 style="color: var(--primary-color); margin-top: 0;">What Happens</h3>
+                            <p>An armoured van appears on the map, containing valuable loot and guarded by gang members.</p>
+                            
+                            <h3 style="color: var(--primary-color); margin-top: 1rem;">🎯 How to Complete</h3>
+                            <ol>
+                                <li>Find the armoured van location</li>
+                                <li><strong>Eliminate the gang guards</strong> protecting the van</li>
+                                <li>Take control of the van</li>
+                                <li><strong>Drive the van to the delivery location</strong></li>
+                                <li>Collect your reward</li>
+                            </ol>
+
+                            <h3 style="color: var(--primary-color); margin-top: 1rem;">⚔️ Challenges</h3>
+                            <ul>
+                                <li>Well-armed gang members will defend the van</li>
+                                <li>Other players may try to hijack your van</li>
+                                <li>Van is slow and difficult to maneuver</li>
+                                <li>Hostile players may intercept you during delivery</li>
+                            </ul>
+
+                            <div style="background: rgba(204, 0, 0, 0.1); border: 1px solid var(--primary-color); border-radius: 6px; padding: 1rem; margin-top: 1rem;">
+                                <p style="color: var(--accent);"><strong>💡 Tip:</strong> Coordinate with a team to handle guards and protect the van during delivery!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="guide-section">
+                        <h2>⚡ Blackout</h2>
+                        <div style="background: var(--card-bg); border-left: 4px solid var(--primary-color); border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0;">
+                            <h3 style="color: var(--primary-color); margin-top: 0;">What Happens</h3>
+                            <p>The entire city experiences a widespread blackout, affecting businesses and traders across the server.</p>
+                            
+                            <h3 style="color: var(--primary-color); margin-top: 1rem;">🌑 Blackout Effects</h3>
+                            <ul>
+                                <li>All traders stop working</li>
+                                <li>Businesses cannot operate</li>
+                                <li>Server-wide darkness</li>
+                                <li>Creates unique gameplay opportunities</li>
+                            </ul>
+
+                            <h3 style="color: var(--primary-color); margin-top: 1rem;">🏆 Objective & Reward</h3>
+                            <ul>
+                                <li><strong>First player to fix the blackout wins!</strong></li>
+                                <li>Restoring power requires finding and repairing power stations</li>
+                                <li>Significant reward for being the first to restore power</li>
+                                <li>Everyone benefits once power is restored</li>
+                            </ul>
+
+                            <div style="background: rgba(204, 0, 0, 0.1); border: 1px solid var(--primary-color); border-radius: 6px; padding: 1rem; margin-top: 1rem;">
+                                <p style="color: var(--accent);"><strong>💡 Tip:</strong> Keep an eye out for blackout events and be ready to race to the power stations!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="guide-section">
+                        <h2>📊 Event Summary</h2>
+                        <div style="overflow-x: auto; margin: 1.5rem 0;">
+                            <table style="width: 100%; border-collapse: collapse;">
+                                <thead>
+                                    <tr style="background: var(--card-bg); border-bottom: 2px solid var(--primary-color);">
+                                        <th style="padding: 1rem; text-align: left; color: var(--primary-color);">Event</th>
+                                        <th style="padding: 1rem; text-align: left; color: var(--primary-color);">Danger</th>
+                                        <th style="padding: 1rem; text-align: left; color: var(--primary-color);">Reward</th>
+                                        <th style="padding: 1rem; text-align: left; color: var(--primary-color);">Requirements</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="border-bottom: 1px solid var(--border-color);">
+                                        <td style="padding: 1rem;">📦 Care Packages</td>
+                                        <td style="padding: 1rem;">High (PvP)</td>
+                                        <td style="padding: 1rem;">Cash + Weapons</td>
+                                        <td style="padding: 1rem;">Combat skills</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid var(--border-color);">
+                                        <td style="padding: 1rem;">🚢 Cargo</td>
+                                        <td style="padding: 1rem;">Medium</td>
+                                        <td style="padding: 1rem;">Valuable loot</td>
+                                        <td style="padding: 1rem;">Transport access</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid var(--border-color);">
+                                        <td style="padding: 1rem;">⚙️ Oil Drop</td>
+                                        <td style="padding: 1rem;">High (NPCs + PvP)</td>
+                                        <td style="padding: 1rem;">High-value loot</td>
+                                        <td style="padding: 1rem;">Good weapons + armor</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid var(--border-color);">
+                                        <td style="padding: 1rem;">🚛 Van Raid</td>
+                                        <td style="padding: 1rem;">Very High</td>
+                                        <td style="padding: 1rem;">Excellent rewards</td>
+                                        <td style="padding: 1rem;">Team + weapons</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 1rem;">⚡ Blackout</td>
+                                        <td style="padding: 1rem;">Low</td>
+                                        <td style="padding: 1rem;">Bonus reward</td>
+                                        <td style="padding: 1rem;">Speed + awareness</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="tips-box">
+                        <h3>💡 Event Tips</h3>
+                        <ul>
+                            <li>Stay alert - events can happen at any time</li>
+                            <li>Team up with friends for dangerous events like Van Raids</li>
+                            <li>Have good weapons and armor ready for combat events</li>
+                            <li>Monitor the server announcements for event notifications</li>
+                            <li>Balance risk vs reward - not every event is worth dying for</li>
+                            <li>Events are great for earning quick money and XP</li>
+                            <li>Participate regularly to get familiar with event locations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Police Guide Page -->
+            <div id="policeguide-page" class="page">
+                <div class="content-container">
+                    <h1>👮 Police Guide</h1>
+                    <p>Everything law enforcement players need to know.</p>
+                    <p style="color: var(--text-secondary);">A comprehensive guide to police operations and procedures.</p>
+                </div>
+            </div>
+        </main>
+    </div>
 
     <script src="script.js"></script>
 </body>
